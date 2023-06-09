@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+declare function customInitFunctions();
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Pagina-Web-UEFBC';
+export class AppComponent implements OnInit{
+  title = 'appFacturacionEc';
+
+
+  ngOnInit(): void {
+    customInitFunctions();
+  }
 }
