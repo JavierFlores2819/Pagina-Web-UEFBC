@@ -1,0 +1,35 @@
+<div class="row tab-content">
+    <form (ngSubmit)="generarLista()">
+        <div class=" form-group col-md-6">
+            <label>Seleccione curso</label>
+            <select class="custom-select col-12" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option value=1>Primero - Basica</option>
+            </select>
+            <div class="form-actions col-md-6">
+                <button type="submit" class="btn btn-success m-r-10">Generar lista</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row tab-content" *ngIf="typesOfShoes.length>0 ">
+    <mat-selection-list #shoes>
+        <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe.id" >
+          {{shoe.nom1}} {{shoe.nom2}} {{shoe.apeP}} 
+        </mat-list-option>
+      </mat-selection-list>
+      <div class="row">
+        <p>
+            Total estudiantes seleccionados {{shoes.selectedOptions.selected.length}}
+          </p>
+      </div>
+
+    
+      <mat-action-list>
+        <button mat-list-item class="btn btn-success m-r-10" (click)="save(shoes.selectedOptions.selected)">Save</button>
+        <button mat-list-item (click)="undo()">Undo</button>
+      </mat-action-list>
+</div>
+
+
+  

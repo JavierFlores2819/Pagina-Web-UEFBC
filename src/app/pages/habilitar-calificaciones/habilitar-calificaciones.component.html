@@ -1,1 +1,54 @@
-<p>habilitar-calificaciones works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h1>{{tittle}}</h1>
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="">Presente año lectivo: </label>
+                              <input class="form-control" type="text" [disabled]="true" [value]="anioL">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Quimestre":</label>
+                            <input class="form-control form-control-line" type="text" [disabled]="true" [value]="quimestre">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Parcial: </label>
+                            <input class="form-control" type="text" [disabled]="true" [value]="parcial">
+                        </div>
+                    </div>
+                </form>
+                <form (ngSubmit)="addFechasCalificaciones()">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="fecI" class="control-label">Fecha de inicio:</label>
+                                <input class="form-control" type="date" name="fecI"
+                                #fecI="ngModel"
+                                [(ngModel)]='tiempoCalif.fecIni'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="fecF" class="control-label">Fecha de fin:</label>
+                                <input class="form-control" type="date" name="fecF"
+                                #fecF="ngModel"
+                                [(ngModel)]='tiempoCalif.fecFin'>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success m-r-10"> Guardar
+                        </button>
+                        <button type="button" class="btn btn-inverse" routerLink="">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            {{tiempoCalif|json}}
+        </div>
+    </div>
+</div>

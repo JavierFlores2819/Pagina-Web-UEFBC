@@ -1,0 +1,19 @@
+export class AnioLectivo {
+    id?:number;
+    fecInicio:string;
+    fecFin:string;
+    numPar:number;
+    numQui:number;
+    inicial:boolean;
+    basica:boolean;
+    bachiller:boolean
+    constructor(fecIni:string,fecFin:string,numPar:number,numQui:number,inicial:boolean,basica:boolean,bachiller:boolean){
+        this.fecInicio=fecIni;
+        this.fecFin=fecFin;
+        this.numPar=numPar;
+        this.numQui=numQui;
+        this.inicial=inicial;
+        this.basica=basica;
+        this.bachiller=bachiller;
+    }
+}

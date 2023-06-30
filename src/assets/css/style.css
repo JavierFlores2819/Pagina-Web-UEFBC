@@ -1000,7 +1000,7 @@ File: scss
   position: relative; }
 
 .container-fluid {
-  padding: 25px 25px; }
+  padding: 10px 10px; }
 
 .card {
   margin-bottom: 30px; }
@@ -5754,7 +5754,7 @@ File: scss
  ============================================================== */
 @media (max-width: 767px) {
   .container-fluid {
-    padding: 25px 15px 25px 15px; }
+    padding: 10px 15px 10px 15px; }
   /*Header*/
   .topbar {
     position: fixed;

@@ -1,0 +1,252 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h1>{{title}}</h1>
+                <form class="form-material m-t-40" (ngSubmit)="addAlumno()">
+                    <h2>Información del estudiante nuevo</h2>
+                    <hr>
+                    <div class="row form-group">
+                        <div class=" col-md-6">
+                            <label for="ce">Cédula:</label>
+                            <input  class="form-control" type="text" name="ce"
+                            #ce="ngModel"
+                            [(ngModel)]="alumno.ced">
+                        </div>
+                    </div>
+                    <div class="row form-group ">
+                        <div class="col-md-3">
+                            <label for="apeP">Apellido paterno:</label>
+                            <input  class="form-control" type="text" name="apeP"
+                            #apeP="ngModel"
+                            [(ngModel)]="alumno.apeP">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="apeM">Apellido materno:</label>
+                            <input  class="form-control" type="text" name="apeM"
+                            #apeM="ngModel"
+                            [(ngModel)]="alumno.apeM">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="nomb1">Primer nombre:</label>
+                            <input  class="form-control" type="text" name="nomb1"
+                            #nomb1="ngModel"
+                            [(ngModel)]="alumno.nom1">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="nomb2">Segundo nombre:</label>
+                            <input  class="form-control" type="text" name="nomb2"
+                            #nomb2="ngModel"
+                            [(ngModel)]="alumno.nom2">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="g">Género:</label>
+                            <select class="form-control" id="" name="g" #g="ngModel" [(ngModel)]="alumno.gen">
+                                <option value="">Seleccione</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                                <label for="fecN" class="control-label">Fecha de nacimiento:</label>
+                                <input class="form-control" type="date" name="fecN"
+                                #fecI="ngModel"
+                                [(ngModel)]='alumno.fec_nac'>
+                        </div>
+                    </div>
+                    <h2>Dirección de residencia del estudiante</h2>
+                    <hr>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="pro">Provincia:</label>
+                            <select class="form-control" id="" name="pro" #pro="ngModel" [(ngModel)]="alumno.pro">
+                                <option value="">Seleccione</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="can">Cantón:</label>
+                            <select class="form-control" id="" name="can" #can="ngModel" [(ngModel)]="alumno.canton">
+                                <option value="">Seleccione</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="pa">Parroquia:</label>
+                            <select class="form-control" id="" name="pa" #pa="ngModel" [(ngModel)]="alumno.parroquia">
+                                <option value="">Seleccione</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cue">Código único eléctrico:</label>
+                            <input  class="form-control" type="text" name="cue"
+                            #cue="ngModel"
+                            [(ngModel)]="alumno.codUnicoElec">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="de">Dirección exacta:</label>
+                            <input  class="form-control" type="text" name="de"
+                            #de="ngModel"
+                            [(ngModel)]="alumno.direccion">
+                        </div>
+                    </div>
+                    <h2>Nacionalidad del estudiante</h2>
+                    <hr>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="nac">Nacionalidad:</label>
+                            <input  class="form-control" type="text" name="nac"
+                            #nac="ngModel"
+                            [(ngModel)]="alumno.nacional">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ae">Autodefinición étnica:</label>
+                            <select class="form-control" id="" name="ae" #ae="ngModel" [(ngModel)]="alumno.etnia">
+                                <option value="">Seleccione</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="nacE">Nacionalidad étnica:</label>
+                            <input  class="form-control" type="text" name="nacE"
+                            #nacE="ngModel"
+                            [(ngModel)]="alumno.nacEtnia">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="coE">Comunidad étnica:</label>
+                            <input  class="form-control" type="text" name="coE"
+                            #coE="ngModel"
+                            [(ngModel)]="alumno.comunEtnia">
+                        </div>
+                    </div>
+                    <h2>Necesidades eduactivas especiales asociadaso no a una discapacidad</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="rb1">Tiene necesidad educativa especial asociada a la discapacidad:</label>
+                        <div class="form-check" name="rb1">
+                            <label class="custom-control custom-radio">
+                                <input id="rb1S" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Si</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="custom-control custom-radio">
+                                <input id="rb1N" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">No</span>
+                            </label>
+                        </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="rb2">Tiene necesidad educativa especial no asociada a la discapacidad:</label>
+                        <div class="form-check" name="rb2">
+                            <label class="custom-control custom-radio">
+                                <input id="rb2S" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Si</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="custom-control custom-radio">
+                                <input id="rb2N" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">No</span>
+                            </label>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="rb3">Posee enfermedad catastrófica:</label>
+                        <div class="form-check" name="rb3">
+                            <label class="custom-control custom-radio">
+                                <input id="rb3S" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Si</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="custom-control custom-radio">
+                                <input id="rb3N" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">No</span>
+                            </label>
+                        </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="rb4">Tiene carnet de CONADIS:</label>
+                        <div class="form-check" name="rb4">
+                            <label class="custom-control custom-radio">
+                                <input id="rb4S" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Si</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="custom-control custom-radio">
+                                <input id="rb4N" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">No</span>
+                            </label>
+                        </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">N°</label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                    <h2>Información tecnológica y de comunicación</h2>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">¿Qué equipos de comunicación dispoe en su hogar?</label>
+
+                            <div class="form-check" *ngFor="let item of listEquiposE">
+                                <label class="custom-control custom-checkbox">
+                                    <input id="1" type="checkbox" class="custom-control-input" [value]="item.value" (change)="onChangeCheck($event)">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">{{item.nombre}}</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="rb4">En su hogar dispone de internet?:</label>
+                        <div class="form-check" name="rb4">
+                            <label class="custom-control custom-radio">
+                                <input id="rb4S" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Si</span>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="custom-control custom-radio">
+                                <input id="rb4N" name="radio" type="radio" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">No</span>
+                            </label>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="">Observación:</label>
+                            <textarea class="form-control" name="" id="" cols="30" rows="6"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success m-r-10"> Guardar
+                        </button>
+                        <button type="button" class="btn btn-inverse" routerLink="">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{alumno|json}}
+    </div>
+</div>
