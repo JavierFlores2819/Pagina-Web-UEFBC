@@ -13,22 +13,20 @@
     </form>
 </div>
 <div class="row tab-content" *ngIf="typesOfShoes.length>0 ">
-    <mat-selection-list #shoes>
+    <mat-selection-list class="col-md-8" #shoes>
         <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe.id" >
           {{shoe.nom1}} {{shoe.nom2}} {{shoe.apeP}} 
         </mat-list-option>
       </mat-selection-list>
-      <div class="row">
+      <div class="col-md-4">
         <p>
             Total estudiantes seleccionados {{shoes.selectedOptions.selected.length}}
           </p>
+          <mat-action-list>
+            <button mat-list-item class="btn btn-success m-r-10" (click)="save(shoes.selectedOptions.selected)">Guardar lista</button>
+            <button mat-list-item (click)="undo()">Cancelar</button>
+          </mat-action-list>
       </div>
-
-    
-      <mat-action-list>
-        <button mat-list-item class="btn btn-success m-r-10" (click)="save(shoes.selectedOptions.selected)">Save</button>
-        <button mat-list-item (click)="undo()">Undo</button>
-      </mat-action-list>
 </div>
 
 

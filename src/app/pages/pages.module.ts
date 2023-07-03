@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 //import { appFormsModule } from '../forms/forms.module';
 
 import { SharedModule } from '../shared/shared.module';
@@ -27,6 +29,7 @@ import { MatListModule } from '@angular/material/list';
 import { CalificacionComponent } from './calificacion/calificacion.component';
 import { CalificacionCualComponent } from './calificacion-cual/calificacion-cual.component';
 import { CalificacionCuanComponent } from './calificacion-cuan/calificacion-cuan.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -60,7 +63,9 @@ import { CalificacionCuanComponent } from './calificacion-cuan/calificacion-cuan
     ComponentsModule,
    // appFormsModule,
     FormsModule,
-    MatListModule
+    MatListModule,
+    FontAwesomeModule,
+    HttpClientModule,
   ],
   exports: [
     DashboardComponent,

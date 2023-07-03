@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calificacion-cual.component.css']
 })
 export class CalificacionCualComponent implements OnInit {
+  title:string = 'Disciplina'
 
-  constructor() { }
+  constructor() {
+    this.loadDatosGene();
+   }
 
   ngOnInit(): void {
+  }
+
+  loadDatosGene(){
+
   }
 
 }

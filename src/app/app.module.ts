@@ -7,6 +7,7 @@ import { PagesModule } from './pages/pages.module';
 import { AppComponent } from './app.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { AuthModule } from './auth/auth.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -23,6 +24,7 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     PagesModule,
     AuthModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

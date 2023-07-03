@@ -8,7 +8,7 @@ import { Usuario } from 'src/app/models/usuario.model';
 })
 export class FormUsusarioComponent implements OnInit {
 
-  usuario:Usuario={id:0,nombres:"",apellidos:"",correo:"",rol:0,imgPerfil:""}
+  usuario:Usuario={id:0,ced:"",nombres:"",apellidos:"",correo:"",pswd:"",rol:"",estado:"",fechaCreacion:"",imgPerfil:""}
   constructor() { }
 
   ngOnInit(): void {

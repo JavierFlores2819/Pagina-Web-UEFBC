@@ -30,7 +30,6 @@ const routes: Routes = [
           {path: 'información-general',component: InfoGeneralComponent},
           {path: 'año-lectivo',component: AnioLectivoComponent},
           {path: 'cursos',component: CursosComponent},
-          {path: 'paralelos',component: ParalelosComponent},
           {path: 'habilitar-calificaciones',component: HabilitarCalificacionesComponent},
           {path: 'edit-infoG', component: FormInfoGeneralComponent},
           {path: 'nuevoAnio', component:FormAnioLComponent},
@@ -40,11 +39,13 @@ const routes: Routes = [
           //Estudiantes
           {path:'alumnos',component:AlumnosComponent},
           {path:'nuevo_alumno',component:FormAlumnoComponent},
-          {path:'calificacion', component:CalificacionComponent},
+          {path:'notas_cursos', component:CalificacionComponent},
           {path:'califi-cuan',component:CalificacionCuanComponent},
           {path:'calif-cual',component:CalificacionCuanComponent},
                    
           {path: 'account-settings', component:AccountSettingsComponent},
+          //{path: ':id',component: ParalelosComponent},
+
         ]
       },
      /* {

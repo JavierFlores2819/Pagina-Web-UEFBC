@@ -1,1 +1,30 @@
-<p>cursos works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <h1>{{title}}</h1>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Número</th>
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <tr *ngFor="let curso of listCursosA">
+                                <td><a href="javascript:void(0)">{{curso.id}}</a></td>
+                                <td>{{curso.nombre}}</td>
+                                <td>{{ curso.numero}}</td>
+                                <td>{{curso.descrip}}</td>
+                                <td><a [routerLink]="['/',curso.id]"><i class="mdi mdi-eye"></i></a></td>
+                            </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
