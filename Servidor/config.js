@@ -1,5 +1,6 @@
 module.exports = {
   url: "http://localhost",
+  url_pagina: "http://localhost:4200",
   port: 8080, // Puerto en el que se ejecutará el servidor
   database: {
     host: 'localhost', // Host de la base de datos

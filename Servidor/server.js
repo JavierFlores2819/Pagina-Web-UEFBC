@@ -4,12 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const config = require('./config');
 
-
 const app = express();
 app.use(bodyParser.json());
 
-// Configuración de CORS
-app.use(cors());
 
 // CONFIGURACIÓN DE LA BASE DE DATOS DE MySQL
 const connection = mysql.createConnection({
@@ -29,6 +26,10 @@ connection.connect((err) => {
     }
 });
 
+// Configuración de CORS
+app.use(cors());
+
+
 // ESCUCHA EN UN PUERTO ESPECÍFICO
 app.listen(config.port, () => {
     console.log(`Servidor iniciado en el puerto ${config.port}`);
@@ -36,7 +37,7 @@ app.listen(config.port, () => {
 
 //CONFIGURANDO CORS
 const corsOptions = {
-    origin: config.url,
+    origin: config.url_pagina,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 };
@@ -55,7 +56,7 @@ app.use(cors(corsOptions));
  */
 
 //SERVICIO PARA OBTENER DATOS
-app.get('/api/get', (req, res) => {
+app.post('/api/get', (req, res) => {
     // Obtener los parámetros de la consulta
     const data = req.body;
     var campos = "*";
