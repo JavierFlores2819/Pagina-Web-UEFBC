@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form (ngSubmit)="addUsuario()">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="nomU">Nombres:</label>
+                            <input type="text" class="form-control form-control-line"
+                            name="nomU"
+                            #nomU="ngModel"
+                            [(ngModel)]="usuario.nombres">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="ape">Apellidos:</label>
+                            <input type="text" class="form-control form-control-line"
+                            name="apeU"
+                            #apeU="ngModel"
+                            [(ngModel)]="usuario.apellidos">
+                        </div>
+                    </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="emailU">Correo:</label>
+                                <input type="email" class="form-control"
+                                name="emailU"
+                                #emailU="ngModel"
+                                [(ngModel)]="usuario.correo">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="imgP">Imagen de Perfil:</label>
+                                    <input type="file" class="form-control" id="exampleInputFile" aria-describedby="fileHelp"
+                                    name="imgP"
+                                    #imgP="ngModel"
+                                    [(ngModel)]='usuario.imgPerfil'>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success m-r-10"> Guardar
+                        </button>
+                        <button type="button" class="btn btn-inverse" routerLink="">Cancel</button>
+                    </div>
+                </form>
+            </div> 
+            {{usuario|json}}   
+        </div>
+    </div>
+</div>

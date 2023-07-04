@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h1>{{title}}</h1>
+                <form class="form-material" (ngSubmit)="editInfo()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="misionInfo" class="control-label">Misión</label>
+                                <textarea class="form-control" rows="5" name="misionInfo" 
+                                #misionInfo="ngModel"
+                                [(ngModel)]='infoG.mision'>
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="visionInfo" class="control-label">Visión</label>
+                                <textarea class="form-control" rows="5" name="visionInfo" 
+                                #misionInfo="ngModel"
+                                [(ngModel)]='infoG.vision'>
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Escudo</label>
+                                <input type="file" class="form-control" id="exampleInputFile" aria-describedby="fileHelp"
+                                name="imgI"
+                                #imgI="ngModel"
+                                [(ngModel)]='infoG.escudoImg'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success m-r-10"> Guardar
+                        </button>
+                        <button type="button" class="btn btn-inverse" routerLink="/información-general">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            {{infoG|json}}
+        </div>
+    </div>    
+</div>    
