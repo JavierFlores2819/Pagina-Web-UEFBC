@@ -11,7 +11,7 @@ export class FormAnioLComponent implements OnInit {
   /*listSeccion=[{nombre:"Inicial",value:1},
               {nombre:"Básica",value:2},
               {nombre:"Bachiller",value:3}]*/
-  anioL:AnioLectivo={id:0,fecInicio:"",fecFin:"",periodo:0,subPer:0,estado:"",user:0,fecC:""}
+  anioL:AnioLectivo={"AL_ID":0,"AL_INI":"","AL_FIN": "","AL_PRD": 0,"AL_SUB_PRD": 0,"AL_ESTADO":"A"}
  
   constructor() { }
 

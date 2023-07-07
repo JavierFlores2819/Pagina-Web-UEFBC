@@ -1,16 +1,19 @@
-import { AppRoutingModule } from "../app-routing.module";
 
-export class Alumno {
-    id?:number;
-    ced:string;
-    nom1:string;
-    nom2:string;
-    apeM:string;
-    apeP:string;
-    gen:string;
-    fec_nac:string;
-    img:string;
-
+export interface Alumno {
+    EST_ID:number
+    EST_DNI:string 
+    EST_NOM:string
+    EST_NOM2:string
+    EST_APE:string
+    EST_APE2:string
+    EST_FECH_NAC:string
+    EST_GEN:string
+    EST_ESTADO:string
+  //  REP_ID:number
+    //USR_CREADOR_ID:number
+   // FECHA_CREACION:string
+    
+/*
     //NACIONALIDAD DEL ESTUDIANTE
    pro:string;
     canton:string;
@@ -35,13 +38,6 @@ export class Alumno {
     celular:number;
     internet:number;
     obs:string;
+    */
 
-    constructor(id:number,ced:string,nom1:string,nom2:string,apeP:string,apeM:string) {
-        this.id=id;
-        this.ced = ced;
-        this.nom1 = nom1;
-        this.apeP = apeP;
-        this.apeM = apeM;
-        
-    }
 }

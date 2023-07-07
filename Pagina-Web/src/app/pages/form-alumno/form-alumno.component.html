@@ -11,51 +11,55 @@
                             <label for="ce">Cédula:</label>
                             <input  class="form-control" type="text" name="ce"
                             #ce="ngModel"
-                            [(ngModel)]="alumno.ced">
+                            [(ngModel)]="alumno.EST_DNI">
                         </div>
                     </div>
                     <div class="row form-group ">
                         <div class="col-md-3">
-                            <label for="apeP">Apellido paterno:</label>
+                            <label for="apeP">Primer apellido:</label>
                             <input  class="form-control" type="text" name="apeP"
                             #apeP="ngModel"
-                            [(ngModel)]="alumno.apeP">
+                            [(ngModel)]="alumno.EST_APE">
                         </div>
                         <div class="col-md-3">
-                            <label for="apeM">Apellido materno:</label>
+                            <label for="apeM">Segundo apellido:</label>
                             <input  class="form-control" type="text" name="apeM"
                             #apeM="ngModel"
-                            [(ngModel)]="alumno.apeM">
+                            [(ngModel)]="alumno.EST_APE2">
                         </div>
                         <div class="col-md-3">
                             <label for="nomb1">Primer nombre:</label>
                             <input  class="form-control" type="text" name="nomb1"
                             #nomb1="ngModel"
-                            [(ngModel)]="alumno.nom1">
+                            [(ngModel)]="alumno.EST_NOM">
                         </div>
                         <div class="col-md-3">
                             <label for="nomb2">Segundo nombre:</label>
                             <input  class="form-control" type="text" name="nomb2"
                             #nomb2="ngModel"
-                            [(ngModel)]="alumno.nom2">
+                            [(ngModel)]="alumno.EST_NOM2">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label for="g">Género:</label>
-                            <select class="form-control" id="" name="g" #g="ngModel" [(ngModel)]="alumno.gen">
-                                <option value="">Seleccione</option>
+                            <select class="form-control" id="" name="g" #g="ngModel" (select)="alumno.EST_GEN" [(ngModel)]="alumno.EST_GEN">
+                                <option [value]="0">Seleccione</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
                             </select>
                         </div>
                         <div class="col-md-6">
                                 <label for="fecN" class="control-label">Fecha de nacimiento:</label>
                                 <input class="form-control" type="date" name="fecN"
                                 #fecI="ngModel"
-                                [(ngModel)]='alumno.fec_nac'>
+                                [(ngModel)]='alumno.EST_FECH_NAC'
+                                [value]="alumno.EST_FECH_NAC">
                         </div>
                     </div>
                     <h2>Dirección de residencia del estudiante</h2>
                     <hr>
+                    <!--
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label for="pro">Provincia:</label>
@@ -91,9 +95,12 @@
                             #de="ngModel"
                             [(ngModel)]="alumno.direccion">
                         </div>
-                    </div>
+                    </div> 
+                    -->
+                    
                     <h2>Nacionalidad del estudiante</h2>
                     <hr>
+                    <!--
                     <div class="row form-group">
                         <div class="col-md-6">
                             <label for="nac">Nacionalidad:</label>
@@ -122,6 +129,7 @@
                             [(ngModel)]="alumno.comunEtnia">
                         </div>
                     </div>
+                    -->
                     <h2>Necesidades eduactivas especiales asociadaso no a una discapacidad</h2>
                     <hr>
                     <div class="row">

@@ -1,23 +1,12 @@
-export class AnioLectivo {
-    id?:number;
-    fecInicio:string;
-    fecFin:string;
-    periodo:number;
-    subPer:number;
-    estado:string
-    user:number
-    fecC:string
-    //inicial:boolean;
-   // basica:boolean;
-   // bachiller:boolean
-    constructor(fecIni:string,fecFin:string,periodo:number,subPer:number,estado:string){
-        this.fecInicio=fecIni;
-        this.fecFin=fecFin;
-        this.periodo=periodo;
-        this.subPer=subPer;
-        this.estado = estado
-       // this.inicial=inicial;
-       // this.basica=basica;
-//this.bachiller=bachiller;
-    }
+export interface AnioLectivo {
+    AL_ID:number
+    AL_INI:string
+    AL_FIN:string
+    AL_PRD:number
+    AL_SUB_PRD:number
+    AL_ESTADO:string
+    //USR_CREADOR_ID:number
+   // FECHA_CREACION:string
+
+
 }

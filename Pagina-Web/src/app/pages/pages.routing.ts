@@ -40,12 +40,15 @@ const routes: Routes = [
           {path:'alumnos',component:AlumnosComponent},
           {path:'nuevo_alumno',component:FormAlumnoComponent},
           {path:'notas_cursos', component:CalificacionComponent},
-          {path:'califi-cuan',component:CalificacionCuanComponent},
           {path:'calif-cual',component:CalificacionCuanComponent},
                    
           {path: 'account-settings', component:AccountSettingsComponent},
-          //{path: ':id',component: ParalelosComponent},
-
+          {path: 'curso/:id',component: ParalelosComponent},
+          {path:':id',component:FormUsusarioComponent},
+          {path:'califi-cuan/:id',component:CalificacionCuanComponent},
+          {path:'edit-alumno/:id', component:FormAlumnoComponent},
+          {path:'edit-al/:id', component:FormAnioLComponent},
+          {path:'usuario/:id',component:FormUsusarioComponent}
         ]
       },
      /* {

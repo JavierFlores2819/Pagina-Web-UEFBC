@@ -1,22 +1,65 @@
 <div class="card">
     <div class="card-body">
-        <h1>Paralelos</h1>
+        <div class="row">
+            <h1>{{id}}</h1>
+            <h3 class="col-md-4">Curso: {{curso.CRS_NOM}}</h3>
+            <h3 class="col-md-4">Tipo: {{curso.CRS_TIP}}</h3>
+        </div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs customtab2" role="tablist">
             <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home7" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Paralelos</span></a> </li>
-            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile7" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Asignar paralelos</span></a> </li>
+            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#asignarEst" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Asignar paralelos</span></a> </li>
         </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
+
+        <div class="tab-content card-body">
             <div class="tab-pane active" id="home7" role="tabpanel">
-                <div class="p-20">
-                    <h3>Best Clean Tab ever</h3>
-                    <h4>you can use it with the small code</h4>
-                    <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a.</p>
+
+                <form action="" (ngSubmit)="addParalelo()">
+                    <div class="row form-group">
+                        <div class="form-group col-md-6">
+                            <label for="nomP">Paralelo:</label>
+                                <input type="text" class="form-control form-control-line" placeholder="A - B - C"
+                                name="nomP"
+                                #nomP="ngModel"
+                                [(ngModel)]="paralelo.PRLL_NOM">
+                        </div>
+                            <div class="col-md-6">
+                                <label for="g">Profesor tutor:</label>
+                                <select class="form-control" id="" name="g" #g="ngModel" [(ngModel)]="paralelo.PRF_ID">
+                                    <option value="0">Seleccione</option>
+                                    <option *ngFor="let profe of listProfesores" [value]="profe.PRF_ID">{{profe.PRF_NOM}} {{profe.PRF_NOM2}} {{profe.PRF_APE}} {{profe.PRF_APE2}}</option>
+                                </select>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-success m-r-10">Agregar paralelo</button>
+                        </div>
+                    </div>
+                    
+                </form>
+                {{paralelo|json}}
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <tr *ngFor="let paralelo of listParalelos">
+                                <td><a href="javascript:void(0)">{{paralelo.PRLL_ID}}</a></td>
+                                <td>{{paralelo.PRLL_NOM}}</td>
+                                <td>{{paralelo.PRLL_ESTADO}}</td>
+                                <td><a href="" onclick="capturar()"><i class="mdi mdi-pencil"></i></a> <a href=""><i class="mdi mdi-delete"></i></a></td>
+                            </tr>
+                    </table>
                 </div>
             </div>
-            <div class="tab-pane  p-20" id="profile7" role="tabpanel">
-                <app-asignar-paralelo-est></app-asignar-paralelo-est>
+            <div class="tab-pane  p-20" id="asignarEst" role="tabpanel">
+                <app-asignar-paralelo-est [curso] = curso [paralelo]=paralelo></app-asignar-paralelo-est>
             </div>
         </div>
     </div>

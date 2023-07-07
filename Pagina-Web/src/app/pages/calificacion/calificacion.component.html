@@ -4,7 +4,7 @@
             <div class="card-body">
             <h1>{{title}}</h1>
             <div class="row">
-                <h3>{{DOCENTE.nom}} {{DOCENTE.ape}}</h3>
+                <h3>{{PROFESOR.PRF_NOM}} {{PROFESOR.PRF_APE}}</h3>
             </div>
             <h3>Cursos asignados</h3><hr>
             <div class="table-responsive">
@@ -12,19 +12,17 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nombre</th>
-                            <th>Número</th>
-                            <th>Descripción</th>
+                            <th>Asignatura</th>
+                            <th>Paralelo</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="">
-                        <tr *ngFor="let curso of listParalelos">
-                            <td><a href="javascript:void(0)">{{curso.id}}</a></td>
-                            <td>{{curso.nombre}}</td>
-                            <td>{{ curso.numero}}</td>
-                            <td>{{curso.descrip}}</td>
-                            <td><a [routerLink]="['/',curso.id]"><i class="mdi mdi-check"></i></a></td>
+                        <tr *ngFor="let paAsig of listParalelos">
+                            <td><a href="javascript:void(0)">{{paAsig.ASG_PRLL_PRF_ID}}</a></td>
+                            <td>{{paAsig.ASG_ID}}</td>
+                            <td>{{paAsig.PRLL_ID}}</td>
+                            <td><a [routerLink]="['/califi-cuan',paAsig.ASG_ID]"><i class="mdi mdi-pen"></i></a></td>
                         </tr>
                 </table>
             </div>

@@ -3,23 +3,14 @@
         <div class="card">
             <div class="card-body">
                     <form class="form-material" (ngSubmit)="addAnio()">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="idAnio" class="control-label">Id:</label>
-                                    <input class="form-control" type="text" name="idAnio"
-                                    #idAnio="ngModel"
-                                    [(ngModel)]='anioL.id'>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="fecI" class="control-label">Fecha de inicio:</label>
                                     <input class="form-control" type="date" name="fecI"
                                     #fecI="ngModel"
-                                    [(ngModel)]='anioL.fecInicio'>
+                                    [(ngModel)]='anioL.AL_INI'>
                                 </div>
                             </div>
                         </div>
@@ -29,7 +20,7 @@
                                     <label for="fecF" class="control-label">Fecha de fin:</label>
                                     <input class="form-control" type="date" name="fecF"
                                     #fecI="ngModel"
-                                    [(ngModel)]='anioL.fecFin'>
+                                    [(ngModel)]='anioL.AL_FIN'>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +32,7 @@
                                 <input class="form-control" type="number" value="0" id="example-number-input"
                                 name="par"
                                 #par="ngModel"
-                                [(ngModel)]="anioL.periodo">
+                                [(ngModel)]="anioL.AL_PRD">
                             </div>
                            
                             <div class="col-md-6">
@@ -49,7 +40,7 @@
                                 <input class="form-control" type="number" value="0" id="example-number-input"
                                 name="qui"
                                 #qui="ngModel"
-                                [(ngModel)]="anioL.subPer">
+                                [(ngModel)]="anioL.AL_SUB_PRD">
                             </div>
                                
 

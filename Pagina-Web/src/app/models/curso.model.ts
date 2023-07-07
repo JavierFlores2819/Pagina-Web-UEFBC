@@ -1,11 +1,14 @@
 export class Curso {
-    id?:number;
-    nombre:string;
-    numero:number;
-    descrip:string;
-    constructor(id:number,nombre:string,numero:number,descrip:string) {
-        this.nombre = nombre;
-        this.numero = numero;
-        this.descrip = descrip;
+    CRS_ID?:number;
+    CRS_NOM:number;
+    CRS_TIP:string;
+    CRS_ESTADO:string;
+    /*
+    		USR_CREADOR_ID	FECHA_CREACION
+    */
+    constructor(nombre:number,numero:string,estado:string) {
+        this.CRS_NOM = nombre;
+        this.CRS_TIP = numero;
+        this.CRS_ESTADO = estado;
     }
 }

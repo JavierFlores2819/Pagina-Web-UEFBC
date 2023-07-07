@@ -1,30 +1,27 @@
 <div class="row tab-content">
-    <form (ngSubmit)="generarLista()">
+    
         <div class=" form-group col-md-6">
-            <label>Seleccione curso</label>
+            <label>Seleccione paralelo</label>
             <select class="custom-select col-12" id="inlineFormCustomSelect">
-                <option selected>Choose...</option>
-                <option value=1>Primero - Basica</option>
+                <option selected>Seleccione</option>
+                <option *ngFor="let item of listParalelos" [value]="item.PRLL_ID">{{item.PRLL_NOM}}</option>
             </select>
-            <div class="form-actions col-md-6">
-                <button type="submit" class="btn btn-success m-r-10">Generar lista</button>
-            </div>
         </div>
-    </form>
+
 </div>
-<div class="row tab-content" *ngIf="typesOfShoes.length>0 ">
-    <mat-selection-list class="col-md-8" #shoes>
-        <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe.id" >
-          {{shoe.nom1}} {{shoe.nom2}} {{shoe.apeP}} 
+<div class="row tab-content" *ngIf="listEstCurso.length>0 ">
+    <mat-selection-list class="col-md-8" #ests>
+        <mat-list-option *ngFor="let est of listEstCurso" [value]="est.EST_ID" >
+          {{est.EST_APE}} {{est.EST_APE2}} {{est.EST_NOM}} {{est.EST_NOM2}} 
         </mat-list-option>
       </mat-selection-list>
       <div class="col-md-4">
         <p>
-            Total estudiantes seleccionados {{shoes.selectedOptions.selected.length}}
+            Total estudiantes seleccionados {{ests.selectedOptions.selected.length}}
           </p>
           <mat-action-list>
-            <button mat-list-item class="btn btn-success m-r-10" (click)="save(shoes.selectedOptions.selected)">Guardar lista</button>
-            <button mat-list-item (click)="undo()">Cancelar</button>
+            <button mat-list-item class="btn btn-success m-r-10" (click)="generarListaParalelo(ests.selectedOptions.selected)">Guardar lista</button>
+            <button mat-list-item (click)="limpiarSeleccion()">Cancelar</button>
           </mat-action-list>
       </div>
 </div>

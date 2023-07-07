@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Curso } from 'src/app/models/curso.model';
+import { PagesService } from 'src/app/services/pages.service';
 
 @Component({
   selector: 'app-cursos',
@@ -9,7 +11,9 @@ import { Curso } from 'src/app/models/curso.model';
 export class CursosComponent implements OnInit {
   title:string='Cursos';
   listCursosA:Curso[]=[]
-  constructor() { 
+  curso:Curso
+  constructor(private route:Router,
+    private pageService:PagesService) { 
     this.loadCursos();
   }
 
@@ -17,12 +21,35 @@ export class CursosComponent implements OnInit {
   }
 
   loadCursos(){
-    this.listCursosA = [{id:1,nombre:'1ro - Primero',numero:1,descrip:'Basica'},{id:2,nombre:'2do - Segundo',numero:2,descrip:'Basica'},
-                        {id:3,nombre:'3ro - Tercero',numero:3,descrip:'Basica'},{id:4,nombre:'4to - Cuarto',numero:4,descrip:'Basica'},
-                        {id:5,nombre:'5to - Quinto',numero:5,descrip:'Basica'},{id:6,nombre:'6to - Sexto',numero:1,descrip:'Basica'},
-                        {id:7,nombre:'7mo - Septimo',numero:7,descrip:'Basica'},{id:11,nombre:'1ro - Primero',numero:1,descrip:'Bachillerato'},
-                        {id:12,nombre:'2do - Segundo',numero:2,descrip:'Bachillerato'},{id:13,nombre:'3ro - Tercero',numero:3,descrip:'Bachillerato'}]
-    return this.listCursosA;
+    let param={"tabla": "curso",
+    "campos":["CRS_ID","CRS_NOM","CRS_TIP","CRS_ESTADO"],
+      "where_nombre": ["CRS_ESTADO"],
+      "where_valor": "A"
   }
+    try {
+      this.pageService.getData(param).subscribe(data=>{
+        this.listCursosA = data
+        console.log(data);
+        
+      })
+    } catch (error) {
+      console.log(error);
+      
+    }
+    return this.listCursosA;
+
+  }
+
+  buscar(value:string){
+    let param ={"tabla": "curso","campos":["CRS_ID","CRS_NOM","CRS_TIP","CRS_ESTADO"],"where_nombre": ["CRS_NOM"],"where_valor":value}
+    this.pageService.getData(param).subscribe(data=>{
+      this.listCursosA = data
+    })
+  }
+
+  /*editPage(curso:Curso){
+    //this.curso = {CRS_ID:1,CRS_NOM:1,CRS_TIP:'1ro - Primero',CRS_ESTADO:'Basica'}
+    this.route.navigate(['/curso',curso.CRS_ID])
+  }*/
 
 }

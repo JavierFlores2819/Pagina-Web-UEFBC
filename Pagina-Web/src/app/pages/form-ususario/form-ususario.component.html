@@ -2,47 +2,51 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
+                <h1>{{title}}</h1>
                 <form (ngSubmit)="addUsuario()">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="nomU">Nombres:</label>
+                            <label for="nomU">Cédula del ususario:</label>
                             <input type="text" class="form-control form-control-line"
                             name="nomU"
                             #nomU="ngModel"
-                            [(ngModel)]="usuario.nombres">
+                            [(ngModel)]="usuario.USR_DNI">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="ape">Apellidos:</label>
+                            <label for="ape">Usuario:</label>
                             <input type="text" class="form-control form-control-line"
                             name="apeU"
                             #apeU="ngModel"
-                            [(ngModel)]="usuario.apellidos">
+                            [(ngModel)]="usuario.USR">
                         </div>
                     </div>
 
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="emailU">Correo:</label>
-                                <input type="email" class="form-control"
+                                <label for="pswdU">Correo:</label>
+                                <input type="password" class="form-control"
                                 name="emailU"
-                                #emailU="ngModel"
-                                [(ngModel)]="usuario.correo">
+                                #pswdU="ngModel"
+                                [(ngModel)]="usuario.USR_PSWD">
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="imgP">Imagen de Perfil:</label>
-                                    <input type="file" class="form-control" id="exampleInputFile" aria-describedby="fileHelp"
-                                    name="imgP"
-                                    #imgP="ngModel"
-                                    [(ngModel)]='usuario.imgPerfil'>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label for="tipoU">Tipo:</label>
+                                    <input type="text" class="form-control form-control-line"
+                                    name="TipoU"
+                                    #TipoU="ngModel"
+                                    [(ngModel)]="usuario.USR_TIPO">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="estU">Estado:</label>
+                                    <input type="text" class="form-control form-control-line"
+                                    name="estU"
+                                    #estU="ngModel"
+                                    [(ngModel)]="usuario.USR_ESTADO">
                                 </div>
                             </div>
-                        </div>
 
-                        
+                        </div>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success m-r-10"> Guardar
                         </button>

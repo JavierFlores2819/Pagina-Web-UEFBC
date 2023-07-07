@@ -1,3 +1,16 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+             <div class="card-body">
+                <label for="">Ingrese el nombre del curso para buscar</label>
+                <input type="text" class="form-control" placeholder="Buscar curso"
+                #buscarU
+                (keyup)="buscar(buscarU.value)"
+                >
+             </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -8,7 +21,7 @@
                         componentes buscar
                     </div>
                     <div class="col-md-6">
-                        <button class="btn btn-success" routerLink="nuevoUsuario">Nuevo</button>
+                        <button class="btn btn-success" routerLink="/nuevoUsuario">Nuevo</button>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -23,10 +36,13 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let usuario of listUsuarios">
-                                <td>{{usuario.id}}</td>
-                                <td>{{usuario.nombres}}</td>
-                                <td>{{usuario.rol}}</td>
-                                <td><a href=""><i class="mdi mdi-pencil"></i></a> <a href=""><i class="mdi mdi-delete"></i></a></td>
+                                <td>{{usuario.USR_ID}}</td>
+                                <td>{{usuario.USR}}</td>
+                                <td>{{usuario.USR_TIPO}}</td>
+                                <td>
+                                    <a href="" [routerLink]="['/usuario',usuario.USR_ID]" onclick="capturar()"><i class="mdi mdi-pencil"></i></a>  
+                                    <i class="mdi mdi-delete" (click)="deleteUsuario(usuario)"></i>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

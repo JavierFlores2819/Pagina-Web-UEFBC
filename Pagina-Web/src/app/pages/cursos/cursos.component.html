@@ -1,3 +1,17 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+             <div class="card-body">
+                <label for="">Ingrese el nombre del curso para buscar</label>
+                <input type="text" class="form-control" placeholder="Buscar curso"
+                #buscarN
+                (keyup)="buscar(buscarN.value)"
+                >
+             </div>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -16,11 +30,12 @@
                         </thead>
                         <tbody class="">
                             <tr *ngFor="let curso of listCursosA">
-                                <td><a href="javascript:void(0)">{{curso.id}}</a></td>
-                                <td>{{curso.nombre}}</td>
-                                <td>{{ curso.numero}}</td>
-                                <td>{{curso.descrip}}</td>
-                                <td><a [routerLink]="['/',curso.id]"><i class="mdi mdi-eye"></i></a></td>
+                                <td><a href="javascript:void(0)">{{curso.CRS_ID}}</a></td>
+                                <td>{{curso.CRS_NOM}}</td>
+                                <td>{{ curso.CRS_TIP}}</td>
+                                <td>{{curso.CRS_ESTADO}}</td>
+                                <td> <a href="" [routerLink]="['/curso',curso.CRS_ID]"><i class="mdi mdi-pencil"></i></a> <a href=""><i class="mdi mdi-delete"></i></a></td>
+                               
                             </tr>
                     </table>
                 </div>

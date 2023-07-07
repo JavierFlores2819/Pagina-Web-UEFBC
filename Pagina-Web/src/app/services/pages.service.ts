@@ -20,28 +20,17 @@ export class PagesService {
   }
 
   addData(data:any):Observable<any>{
-    let urlPost = `${this.url}/create`;
+    let urlPost:string = `${this.url}/create/`;
     return this.http.post(urlPost,data);
   }
 
-
-
-
-  save() {
-    let params = {
-      tabla: "usuario",
-      campos: ["USR_ID", "USR_DNI"],
-      where_nombre: "USR_ID",
-      where_valor: 2
-    };
-
-    this.http.post("http://localhost:8080/api/get", params).subscribe(
-      (resultData: any) => {
-        console.log(resultData);
-      },
-      (error: any) => {
-        console.error("Error al enviar la solicitud:", error);
-      }
-    );
+  deleteData(data:any):Observable<any>{
+    let urlDel:string = `${this.url}/delete`
+    return this.http.delete(urlDel,data)
   }
+  updateData(data:any):Observable<any>{
+    let urlUpdate:string = `${this.url}/update`
+    return this.http.put(urlUpdate,data)
+  }
+
 }

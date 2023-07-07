@@ -1,1 +1,36 @@
-<p>calificacion-cuan works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h1>{{title}}</h1>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>Curso: 8vo</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Paralelo: A</h3>
+                    </div>
+                </div>
+
+                <form action="">
+                    <div class="row" *ngFor="let est of listEst;let indice=index">
+                        <div class="col-md-8">
+                            <h3>{{est.EST_ID}} {{est.MTRC_PASE}}</h3>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control form-control-line"
+                            #est.ID ="ngModel"
+                            [(ngModel)]="notas.EST_ID">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success m-r-10"> Calificar
+                        </button>
+                        <button type="button" class="btn btn-inverse" routerLink="">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

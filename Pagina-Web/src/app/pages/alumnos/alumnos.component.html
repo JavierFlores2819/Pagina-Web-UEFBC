@@ -1,3 +1,17 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+             <div class="card-body">
+                <label for="">Ingrese el número de cédula</label>
+                <input type="text" class="form-control" placeholder="Buscar alumno"
+                #buscarA
+                (keyup)="buscar(buscarA.value)"
+                >
+             </div>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -20,16 +34,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let alumno of Alumno">
-                                <td><a href="javascript:void(0)">{{alumno.id}}</a></td>
-                                <td>{{alumno.ced}}</td>
-                                <td>{{alumno.apeP}}""{{alumno.apeM}}" "{{alumno.nom1}}" "{{alumno.nom2}}</td>
-                                <td>{{alumno.gen}}</td>
-                                <td></td>
+                            <tr *ngFor="let alumno of listAlumno">
+                                <td><a href="javascript:void(0)">{{alumno.EST_ID}}</a></td>
+                                <td>{{alumno.EST_DNI}}</td>
+                                <td>{{alumno.EST_APE}} {{alumno.EST_APE2}} {{alumno.EST_NOM}} {{alumno.EST_NOM2}}</td>
+                                <td>{{alumno.EST_GEN}}</td>
+                                <td> <a href="" [routerLink]="['/edit-alumno',alumno.EST_ID]"><i class="mdi mdi-pencil"></i></a> <a href=""><i class="mdi mdi-delete"></i></a></td>
                             </tr>
                         </tbody>
                     </table>
-                    {{Alumno|json}}
                 </div>
             </div>
         </div>
