@@ -22,7 +22,7 @@ connection.connect((err) => {
         console.error('Error al conectar a la base de datos: ', err);
     } else {
         console.log('Conexión exitosa a la base de datos MySQL');
-        console.log('url de consumo: '+config.url + ':' + config.port + '/api');
+        console.log('url de consumo: ' + config.url + ':' + config.port + '/api');
     }
 });
 
@@ -61,24 +61,33 @@ app.post('/api/get', (req, res) => {
     const data = req.body;
     var campos = "*";
     var valores = [];
-    //valido envio de nombre de tabla
+    var whereClause = '';
+
+    // Valido envío de nombre de tabla
     if (!data.tabla) {
         return res.status(400).json({ error: 'Nombre de tabla no proporcionado' });
     }
 
-    //valido envio de campos
+    // Valido envío de campos
     if (data.campos && Array.isArray(data.campos) && data.campos.length > 0) {
         campos = data.campos.map(campo => campo).join(', ');
     }
 
-    //Construir la consulta SQL dinámica
+    // Construir la consulta SQL dinámica
     var query = `SELECT ${campos} FROM ${data.tabla}`;
 
-    //valido envio de campos where by id
-    if (data.where_nombre && data.where_valor) {
-        query = `SELECT ${campos} FROM ${data.tabla} where ??=?`;
-        valores = [data.where_nombre, data.where_valor];
+    // Valido envío de campos where
+    if (data.where && Array.isArray(data.where) && data.where.length > 0) {
+        const whereConditions = data.where.map(condition => {
+            return `${condition.nombre} ${condition.condicion} ?`;
+        });
+
+        whereClause = ` WHERE ${whereConditions.join(' ' + data.where[0].tipo + ' ')}`;
+        valores = data.where.map(condition => condition.valor);
     }
+
+    // Agregar la cláusula WHERE a la consulta SQL
+    query += whereClause;
 
     connection.query(query, valores, (error, results) => {
         if (error) {
