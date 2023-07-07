@@ -8,7 +8,6 @@ export class anio_lectivo {
       AL_ESTADO: string;
       USR_CREADOR_AL_ID: number;
       FECHA_CREACION: string;
-  static Model: any;
       constructor(AL_ID: number, AL_INI: Date, AL_FIN: Date, AL_PRD: number, AL_SUB_PRD: number, AL_ESTADO: string, USR_CREADOR_AL_ID: number, FECHA_CREACION: string) {
             this.AL_ID = AL_ID;
             this.AL_INI = AL_INI;

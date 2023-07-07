@@ -28,10 +28,10 @@ const routes: Routes = [
       {
         path: 'docentes',
         children: [
-          { path: 'cursos/:id', component: CursosComponent },
+          { path: 'cursos', component: CursosComponent },
         ]
       },
-
+      { path: 'estudiantes', component: EstudiantesComponent },
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'reportes', component: ReportesComponent },
       {
