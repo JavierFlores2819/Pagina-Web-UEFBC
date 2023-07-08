@@ -1,0 +1,17 @@
+ <button type="submit" class="btn btn-primary mt-4" (click)="save()" >Save</button>
+        <button type="submit" class="btn btn-primary mt-4" (click)="generatePDF()" >Save</button>
+
+<table>
+        <thead>
+                <tr>
+                        <th>USR_ID</th>
+                        <th>USR_DNI</th>
+                </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let item of data">
+                        <td>{{ item.USR_ID }}</td>
+                        <td>{{ item.USR_DNI }}</td>
+                </tr>
+        </tbody>
+</table>
