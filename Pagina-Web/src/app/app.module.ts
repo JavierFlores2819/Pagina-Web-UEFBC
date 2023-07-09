@@ -33,6 +33,8 @@ import { DocenteComponent } from './modulos/admin/paginas/docente/docente.compon
 import { EstudianteComponent } from './modulos/admin/paginas/estudiante/estudiante.component';
 import { ParaleloComponent } from './modulos/admin/paginas/paralelo/paralelo.component';
 import { HeaderComponent } from './modulos/admin/dashboard/header/header.component';
+import { ProfesoresComponent } from './modulos/admin/paginas/profesores/profesores.component';
+import { ProfesorComponent } from './modulos/admin/paginas/profesor/profesor.component';
 
 
 
@@ -61,7 +63,9 @@ import { HeaderComponent } from './modulos/admin/dashboard/header/header.compone
     DocenteComponent,
     EstudianteComponent,
     ParaleloComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProfesoresComponent,
+    ProfesorComponent
   ],
   imports: [
     BrowserModule,
