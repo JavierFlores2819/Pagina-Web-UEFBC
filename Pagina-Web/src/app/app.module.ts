@@ -4,10 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminModule } from './modulos/admin/admin.module';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -34,6 +32,8 @@ import { CursoComponent } from './modulos/admin/paginas/curso/curso.component';
 import { DocenteComponent } from './modulos/admin/paginas/docente/docente.component';
 import { EstudianteComponent } from './modulos/admin/paginas/estudiante/estudiante.component';
 import { ParaleloComponent } from './modulos/admin/paginas/paralelo/paralelo.component';
+import { HeaderComponent } from './modulos/admin/dashboard/header/header.component';
+
 
 
 @NgModule({
@@ -60,13 +60,13 @@ import { ParaleloComponent } from './modulos/admin/paginas/paralelo/paralelo.com
     CursoComponent,
     DocenteComponent,
     EstudianteComponent,
-    ParaleloComponent
+    ParaleloComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FontAwesomeModule,
     AdminModule,
     HttpClientModule,
     NgbModule,
