@@ -3,16 +3,18 @@ export class usuario {
     USR_ID: number;
     USR_DNI: string;
     USR: string;
+    USR_NOM: string;
     USR_MAIL: string;
     USR_TEL: string;
     USR_PSWD: string;
     USR_ESTADO: string;
     USR_TIPO: string;
     FECHA_CREACION: string;
-    constructor(USR_ID: number, USR_DNI: string, USR: string, USR_MAIL: string, USR_TEL: string, USR_PSWD: string, USR_ESTADO: string, USR_TIPO: string, FECHA_CREACION: string) {
+    constructor(USR_ID: number, USR_DNI: string, USR_NOM: string, USR: string, USR_MAIL: string, USR_TEL: string, USR_PSWD: string, USR_ESTADO: string, USR_TIPO: string, FECHA_CREACION: string) {
         this.USR_ID = USR_ID;
         this.USR_DNI = USR_DNI;
         this.USR = USR;
+        this.USR_NOM = USR_NOM;
         this.USR_MAIL = USR_MAIL;
         this.USR_TEL = USR_TEL;
         this.USR_PSWD = USR_PSWD;

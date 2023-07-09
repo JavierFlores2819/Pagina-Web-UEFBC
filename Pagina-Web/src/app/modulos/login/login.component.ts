@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import { LoginRequest } from 'src/app/modelos/clases/Login.Model';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { Subject, debounceTime } from 'rxjs';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 
 @Component({
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   })
 
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private usuarioService: UsuariosService) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private authService: AuthService) {
 
 
   }
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.valid) {
-      this.usuarioService.login(this.loginForm.value as LoginRequest).subscribe(
+      this.authService.login(this.loginForm.value as LoginRequest).subscribe(
         {
           next: (response) => {
             if (response === 'OK') {
@@ -75,12 +75,3 @@ export class LoginComponent implements OnInit {
   }
 
 }
- /* this.usuarioService.update().subscribe(
-      {
-        next: (response) => {
-          console.log('Respuesta:', response);
-        },
-        error: (errordata) => {
-          console.error('Error:', errordata);
-        }
-      }); */
