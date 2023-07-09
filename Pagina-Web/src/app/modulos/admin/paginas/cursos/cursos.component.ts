@@ -11,7 +11,10 @@ export class CursosComponent {
   data: curso[] = [];
   headers: string[] = [];
   titulo = 'Cursos';
-  icon = ["fa-eye","fa-edit"];
+  icon = [
+    { icono: 'fa-eye', routerLink: '/', id: true, ruta: false }
+  ];
+  rutaCrear = 'crear';
 
 
   constructor(private cursoService: CursosService) {

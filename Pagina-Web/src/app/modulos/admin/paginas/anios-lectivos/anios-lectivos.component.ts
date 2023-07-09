@@ -11,8 +11,11 @@ export class AniosLectivosComponent {
   data: anio_lectivo[] = [];
   headers: string[] = [];
   titulo = 'Año lectivo';
-  icon =[ "fa-edit"];
-  
+  icon = [
+    { icono: 'fa-eye', routerLink: '../cursos', id: false ,ruta:true}
+  ];
+  rutaCrear = "crear";
+
   constructor(private anioLectivoService: AnioLectivoService) {
   }
 

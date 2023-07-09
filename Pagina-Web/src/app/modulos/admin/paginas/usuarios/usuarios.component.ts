@@ -11,7 +11,10 @@ export class UsuariosComponent {
   data: usuario[] = [];
   headers: string[] = [];
   titulo = 'Usuarios';
-  icon = ["fa-edit"];
+  icon = [
+    { icono: 'fa-edit', routerLink: 'cursos', id: true ,ruta:false}
+  ]; 
+  rutaCrear = 'crear';
 
   constructor(private usuarioService: UsuariosService) {
   }

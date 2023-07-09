@@ -15,7 +15,7 @@ export class AnioLectivoService {
     tabla: "anio_lectivo",
     campos: ['AL_ID as id', "DATE_FORMAT(AL_INI, '%d/%m/%Y')", "DATE_FORMAT(AL_FIN, '%d/%m/%Y')", 'AL_PRD', 'AL_SUB_PRD', 'AL_ESTADO'],
     where: [
-      { "nombre": "AL_ESTADO", "valor": "A", "condicion": "=", "tipo": "&&" },
+      { "nombre": "AL_ESTADO", "valor": "A", "condicion": "=", "tipo": "" },
     ]
 
   };

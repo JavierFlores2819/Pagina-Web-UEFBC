@@ -11,7 +11,10 @@ export class EstudiantesComponent {
   data: estudiante[] = [];
   headers: string[] = [];
   titulo = 'Estudiantes';
-  icon = ["fa-edit"];
+  icon = [
+    { icono: 'fa-edit', routerLink: 'cursos', id: true ,ruta:false }
+  ]; 
+  rutaCrear = 'crear';
 
   constructor(private estudianteService: EstudiantesService) {
   }

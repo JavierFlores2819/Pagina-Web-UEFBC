@@ -88,7 +88,7 @@ app.post('/api/get', (req, res) => {
 
     // Agregar la cláusula WHERE a la consulta SQL
     query += whereClause;
-
+console.log(query);
     connection.query(query, valores, (error, results) => {
         if (error) {
             console.error('Error al ejecutar la consulta: ', error);
