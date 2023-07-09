@@ -35,6 +35,7 @@ import { ParaleloComponent } from './modulos/admin/paginas/paralelo/paralelo.com
 import { HeaderComponent } from './modulos/admin/dashboard/header/header.component';
 import { ProfesoresComponent } from './modulos/admin/paginas/profesores/profesores.component';
 import { ProfesorComponent } from './modulos/admin/paginas/profesor/profesor.component';
+import { AlertaComponent } from './modelos/alerta/alerta.component';
 
 
 
@@ -65,7 +66,8 @@ import { ProfesorComponent } from './modulos/admin/paginas/profesor/profesor.com
     ParaleloComponent,
     HeaderComponent,
     ProfesoresComponent,
-    ProfesorComponent
+    ProfesorComponent,
+    AlertaComponent
   ],
   imports: [
     BrowserModule,
