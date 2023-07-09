@@ -42,7 +42,7 @@ export const navbarData: INavBarData[] = [
             },
             {
                 routelink: 'institucion/profesores',
-                label: 'Docentes',
+                label: 'Profesores',
             },
             {
                 routelink: 'institucion/representantes',
@@ -51,10 +51,6 @@ export const navbarData: INavBarData[] = [
             {
                 routelink: 'institucion/estudiantes',
                 label: 'Estudiantes',
-            },
-            {
-                routelink: 'institucion/matriculas',
-                label: 'Matriculas',
             },
             {
                 routelink: 'institucion/usuarios',
@@ -67,7 +63,28 @@ export const navbarData: INavBarData[] = [
         icon: 'fa fa-file-pdf',
         label: 'Reportes',
         rol:'A',
-
+        items: [
+            {
+                routelink: 'reportes/cursos',
+                label: 'Cursos',
+            },
+            {
+                routelink: 'reportes/docentes',
+                label: 'Docentes',
+            },
+            {
+                routelink: 'reportes/alumnocurso',
+                label: 'Alumno por curso',
+            },
+            {
+                routelink: 'reportes/calificaciones',
+                label: 'Calificaciones',
+            },
+            {
+                routelink: 'reportes/matriculas',
+                label: 'Matrícula',
+            }
+        ]
     }
 
 ];

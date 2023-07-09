@@ -16,9 +16,13 @@
           {{ valor }}
         </td>
         <td>
-          <div class="row justify-content-center" >
+          <div class="row justify-content-center">
             <div class="col col-auto" *ngFor="let element of icon;let i = index">
-              <a [routerLink]="[campo.id]"><i class="fa {{element}}"></i>
+              <a *ngIf="element.id && !element.ruta" [routerLink]="[campo.id]"><i class="fa {{element.icono}}"></i>
+              </a>
+              <a *ngIf="!element.id && element.ruta" [routerLink]="[element.routerLink]"><i class="fa {{element.icono}}"></i>
+              </a>
+              <a *ngIf="element.id && element.ruta" [routerLink]="[element.routerLink+'/'+campo.id]"><i class="fa {{element.icono}}"></i>
               </a>
             </div>
           </div>

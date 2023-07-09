@@ -17,13 +17,16 @@ import { RepresentanteComponent } from './paginas/representante/representante.co
 import { ParaleloComponent } from './paginas/paralelo/paralelo.component';
 import { UsuarioComponent } from './paginas/usuario/usuario.component';
 import { CursoComponent } from './paginas/curso/curso.component';
+import { ProfesoresComponent } from './paginas/profesores/profesores.component';
+import { ProfesorComponent } from './paginas/profesor/profesor.component';
 
 
 const routes: Routes = [
   {
-    path: '', component: DashboardComponent,
+    path: '',
+    component: DashboardComponent,
     children: [
-      { path: '', redirectTo: 'inicio', pathMatch: 'full' }, // Ruta hija por defecto
+      { path: '', redirectTo: 'inicio', pathMatch: 'full' },
       { path: 'inicio', component: InicioComponent },
       {
         path: 'docentes',
@@ -37,26 +40,72 @@ const routes: Routes = [
       {
         path: 'institucion',
         children: [
-          { path: 'cursos', component: CursosComponent },
-          { path: 'cursos/:id', component: CursoComponent },
-          { path: 'anio-lectivo', component: AniosLectivosComponent },
-          { path: 'anio-lectivo/:id', component: AnioLectivoComponent },
-          { path: 'estudiantes', component: EstudiantesComponent },
-          { path: 'estudiante/:id', component: EstudianteComponent },
-          { path: 'profesores', component: DocentesComponent },
-          { path: 'profesores/:id', component: DocenteComponent },
-          { path: 'representantes', component: RepresentantesComponent },
-          { path: 'representantes/:id', component: RepresentanteComponent },
+          {
+            path: 'cursos',
+            children: [
+              { path: '', component: CursosComponent },
+              { path: 'crear', component: CursoComponent },
+              { path: ':curso', component: ParalelosComponent },
+              { path: ':curso/crear', component: ParaleloComponent },
+              { path: ':curso/editar/:paralelo', component: ParaleloComponent },
+              { path: ':curso/ver/:paralelo', component: EstudiantesComponent },
+              { path: ':curso/agregar/:paralelo', component: ParaleloComponent },
+
+
+            ]
+          },
+          {
+            path: 'anio-lectivo',
+            children: [
+              { path: '', component: AniosLectivosComponent },
+              { path: 'crear', component: AnioLectivoComponent },
+            ]
+          },
+          {
+            path: 'estudiantes',
+            children: [
+              { path: '', component: EstudiantesComponent },
+              { path: ':estudiante', component: EstudianteComponent },
+              { path: 'crear', component: EstudianteComponent },
+
+            ]
+          },
+          {
+            path: 'profesores',
+            children: [
+              { path: '', component: ProfesoresComponent },
+              { path: ':profesor', component: ProfesorComponent },
+              { path: 'crear', component: ProfesorComponent },
+
+            ]
+          },
+          {
+            path: 'representantes',
+            children: [
+              { path: '', component: RepresentantesComponent },
+              { path: ':representante', component: RepresentanteComponent },
+              { path: 'crear', component: RepresentanteComponent },
+
+            ]
+          },
+          {
+            path: 'usuarios',
+            children: [
+              { path: '', component: UsuariosComponent },
+              { path: ':usuario', component: UsuarioComponent },
+              { path: 'crear', component: UsuarioComponent },
+
+            ]
+          },
           { path: 'paralelos', component: ParalelosComponent },
-          { path: 'paralelos:id', component: ParaleloComponent },
-          { path: 'usuarios', component: UsuariosComponent },
-          { path: 'usuarios:id', component: UsuarioComponent },
-        ]
+          { path: 'paralelos/:id', component: ParaleloComponent }]
       },
       { path: '**', redirectTo: 'inicio' }
-    ],
-  },
+    ]
+  }
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
