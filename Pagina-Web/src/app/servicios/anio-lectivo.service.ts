@@ -41,17 +41,29 @@ export class AnioLectivoService {
 
 
    updateAnioLectivo(): Observable<{ data: anio_lectivo[], headers: string[] }> {
-    return this.http.put<anio_lectivo[]>(parametros.APIURL + 'update', this.params).pipe(
+    const params = {
+      tabla: "anio_lectivo ORDER BY AL_ESTADO ASC",
+      campos: ["AL_ID as value","concat(DATE_FORMAT(AL_INI, '%d/%m/%Y'),' - ',DATE_FORMAT(AL_FIN, '%d/%m/%Y')) as name"]
+    };
+    const headers = ['Fecha inicio', 'Fecha fin', 'Periodo', 'Subperiodo', 'Estado']
+
+    return this.http.put<anio_lectivo[]>(parametros.APIURL + 'update', params).pipe(
       map(data => {
-        return { data, headers: this.headers };
+        return { data, headers: headers };
       })
     );
   }
 
   addAnioLectivo(): Observable<{ data: anio_lectivo, headers: string[] }> {
-    return this.http.post<anio_lectivo>(parametros.APIURL + 'create', this.params).pipe(
+    const params = {
+      tabla: "anio_lectivo ORDER BY AL_ESTADO ASC",
+      campos: ["AL_ID as value","concat(DATE_FORMAT(AL_INI, '%d/%m/%Y'),' - ',DATE_FORMAT(AL_FIN, '%d/%m/%Y')) as name"]
+    };
+    const headers = ['Fecha inicio', 'Fecha fin', 'Periodo', 'Subperiodo', 'Estado']
+
+    return this.http.post<anio_lectivo>(parametros.APIURL + 'create', params).pipe(
       map(data => {
-        return { data, headers: this.headers };
+        return { data, headers: headers };
       })
     );
   }
