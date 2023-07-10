@@ -9,7 +9,7 @@ import { ParalelosService } from 'src/app/servicios/paralelos.service';
   styleUrls: ['./paralelos.component.scss']
 })
 export class ParalelosComponent implements OnInit {
-  data: paralelo[] = [];
+  data: any[] = [];
   headers: string[] = [];
   titulo = '';
   icon = [
@@ -26,7 +26,7 @@ export class ParalelosComponent implements OnInit {
 
     this.paraleloService.getParalelos(id).subscribe(data => {
       this.data = data.data;
-      this.titulo += data.data[0].CRS_ID;
+      this.titulo += data.data[0].CURSO;
       this.headers = data.headers;
     });
     //  this.rutaCrear += '/' + id+'/crear';

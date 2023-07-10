@@ -160,3 +160,69 @@ CREATE TABLE CALIFICACION(
     FOREIGN KEY (MTRC_ID) REFERENCES MATRICULA (MTRC_ID),
     FOREIGN KEY (ASG_PRLL_PRF_ID) REFERENCES ASG_PRLL_PRF (ASG_PRLL_PRF_ID)
 );
+
+CREATE TABLE periodo (
+    PRD_ID INT NOT NULL PRIMARY KEY,
+    AL_ID INT NOT NULL,
+    PRD_NOMBRE VARCHAR(10),
+    PRD_TIPO CHAR(1) CHECK (PRD_TIPO IN ('N', 'E')),
+    FOREIGN KEY (AL_ID) REFERENCES anio_lectivo (AL_ID)
+);
+
+CREATE TABLE subperiodo (
+    SPRD_ID INT NOT NULL PRIMARY KEY,
+    PRD_ID INT NOT NULL,
+    SPRD_INI DATE NOT NULL,
+    SPRD_FIN DATE NOT NULL,
+    PRD_TIPO CHAR(1) CHECK (PRD_TIPO IN ('N', 'E')),
+    FOREIGN KEY (PRD_ID) REFERENCES periodo (PRD_ID)
+);
+DELIMITER //
+
+CREATE or REMPLACE TRIGGER trigger_insert_periodos_subperiodos
+AFTER INSERT ON anio_lectivo
+FOR EACH ROW
+BEGIN
+    DECLARE i INT;
+    DECLARE j INT;
+    DECLARE anio INT;
+    DECLARE periodo INT;
+
+    -- Insertar en la tabla aniolectivo
+    INSERT INTO aniolectivo (AL_NOMBRE, AL_PRD, AL_SUB_PRD, AL_EXM, AL_INI, AL_FIN, USR_CREADOR_ID)
+    VALUES (NEW.AL_NOMBRE, NEW.AL_PRD, NEW.AL_SUB_PRD, NEW.AL_EXM, NEW.AL_INI, NEW.AL_FIN, NEW.USR_CREADOR_ID);
+
+    SET anio = LAST_INSERT_ID();
+    SET i = 1;
+
+    WHILE i <= NEW.AL_PRD DO
+        -- Insertar en la tabla periodo
+        INSERT INTO periodo (AL_ID, PRD_NOM, PRD_TIPO, PRD_ESTADO, USR_CREADOR_ID)
+        VALUES (anio, CONCAT('Periodo ', i), 'N', 'I', NEW.USR_CREADOR_ID);
+
+        SET periodo = LAST_INSERT_ID();
+        SET j = 1;
+
+        WHILE j <= NEW.AL_SUB_PRD DO
+            -- Insertar en la tabla subperiodo
+            INSERT INTO subperiodo (PRD_ID, SPRD_NOM, SPRD_INI, SPRD_FIN, PRD_TIPO, SPRD_ESTADO, USR_CREADOR_ID)
+            VALUES (periodo, CONCAT('Subperiodo ', j), NEW.AL_INI, NEW.AL_FIN, 'N', 'I', NEW.USR_CREADOR_ID);
+
+            SET j = j + 1;
+        END WHILE;
+
+        SET j = 1;
+        WHILE j <= NEW.AL_EXM DO
+            -- Insertar en la tabla subperiodo
+            INSERT INTO subperiodo (PRD_ID, SPRD_NOM, SPRD_INI, SPRD_FIN, PRD_TIPO, SPRD_ESTADO, USR_CREADOR_ID)
+            VALUES (periodo, CONCAT('Examen ', j), NEW.AL_INI, NEW.AL_FIN, 'E', 'I', NEW.USR_CREADOR_ID);
+
+            SET j = j + 1;
+        END WHILE;
+
+        SET i = i + 1;
+    END WHILE;
+
+END //
+
+DELIMITER ;

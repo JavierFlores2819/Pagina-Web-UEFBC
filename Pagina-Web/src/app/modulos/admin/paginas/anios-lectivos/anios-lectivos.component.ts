@@ -20,7 +20,7 @@ export class AniosLectivosComponent {
   }
 
   ngOnInit() {
-    this.anioLectivoService.getAnioLectivo().subscribe(data => {
+    this.anioLectivoService.get().subscribe(data => {
       this.data = data.data;
       this.headers = data.headers;
     });

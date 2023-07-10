@@ -20,22 +20,27 @@ import { UsuariosComponent } from './modulos/admin/paginas/usuarios/usuarios.com
 import { CursosComponent } from './modulos/admin/paginas/cursos/cursos.component';
 import { SublevelMenuComponent } from './modulos/admin/dashboard/sidenav/sublevel-menu.component';
 import { TablaComponent } from './modelos/tabla/tabla.component';
-import { ReportesComponent } from './modulos/admin/paginas/reportes/reportes.component';
 import { RepresentantesComponent } from './modulos/admin/paginas/representantes/representantes.component';
 import { ParalelosComponent } from './modulos/admin/paginas/paralelos/paralelos.component';
 import { EstudiantesComponent } from './modulos/admin/paginas/estudiantes/estudiantes.component';
-import { DocentesComponent } from './modulos/admin/paginas/docentes/docentes.component';
 import { AniosLectivosComponent } from './modulos/admin/paginas/anios-lectivos/anios-lectivos.component';
 import { UsuarioComponent } from './modulos/admin/paginas/usuario/usuario.component';
 import { RepresentanteComponent } from './modulos/admin/paginas/representante/representante.component';
 import { CursoComponent } from './modulos/admin/paginas/curso/curso.component';
-import { DocenteComponent } from './modulos/admin/paginas/docente/docente.component';
 import { EstudianteComponent } from './modulos/admin/paginas/estudiante/estudiante.component';
 import { ParaleloComponent } from './modulos/admin/paginas/paralelo/paralelo.component';
 import { HeaderComponent } from './modulos/admin/dashboard/header/header.component';
 import { ProfesoresComponent } from './modulos/admin/paginas/profesores/profesores.component';
 import { ProfesorComponent } from './modulos/admin/paginas/profesor/profesor.component';
 import { AlertaComponent } from './modelos/alerta/alerta.component';
+import { ReportEstudiantesComponent } from './modulos/admin/paginas/report-estudiantes/report-estudiantes.component';
+import { ReportCursosComponent } from './modulos/admin/paginas/report-cursos/report-cursos.component';
+import { ReportDocentesComponent } from './modulos/admin/paginas/report-docentes/report-docentes.component';
+import { ReportAlumnoCursoComponent } from './modulos/admin/paginas/report-alumno-curso/report-alumno-curso.component';
+import { ReportCalificacionesComponent } from './modulos/admin/paginas/report-calificaciones/report-calificaciones.component';
+import { ReportMatriculasComponent } from './modulos/admin/paginas/report-matriculas/report-matriculas.component';
+import { DocenteCursosComponent } from './modulos/admin/paginas/docente-cursos/docente-cursos.component';
+import { DocenteCalificacionesComponent } from './modulos/admin/paginas/docente-calificaciones/docente-calificaciones.component';
 
 
 
@@ -52,23 +57,27 @@ import { AlertaComponent } from './modelos/alerta/alerta.component';
     CursosComponent,
     SublevelMenuComponent,
     TablaComponent,
-    ReportesComponent,
     RepresentantesComponent,
     ParalelosComponent,
     EstudiantesComponent,
-    DocentesComponent,
     AniosLectivosComponent,
     UsuarioComponent,
     RepresentanteComponent,
     CursoComponent,
-    DocenteComponent,
     EstudianteComponent,
     ParaleloComponent,
     HeaderComponent,
     ProfesoresComponent,
     ProfesorComponent,
-    AlertaComponent
-  ],
+    AlertaComponent,
+    ReportEstudiantesComponent,
+    ReportCursosComponent,
+    ReportDocentesComponent,
+    ReportAlumnoCursoComponent,
+    ReportCalificacionesComponent,
+    ReportMatriculasComponent,
+    DocenteCursosComponent,
+    DocenteCalificacionesComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

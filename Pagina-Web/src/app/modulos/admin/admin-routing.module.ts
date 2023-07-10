@@ -5,20 +5,25 @@ import { AnioLectivoComponent } from './paginas/anio-lectivo/anio-lectivo.compon
 import { CursosComponent } from './paginas/cursos/cursos.component';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
-import { ReportesComponent } from './paginas/reportes/reportes.component';
 import { RepresentantesComponent } from './paginas/representantes/representantes.component';
 import { ParalelosComponent } from './paginas/paralelos/paralelos.component';
 import { EstudiantesComponent } from './paginas/estudiantes/estudiantes.component';
-import { DocentesComponent } from './paginas/docentes/docentes.component';
 import { AniosLectivosComponent } from './paginas/anios-lectivos/anios-lectivos.component';
 import { EstudianteComponent } from './paginas/estudiante/estudiante.component';
-import { DocenteComponent } from './paginas/docente/docente.component';
 import { RepresentanteComponent } from './paginas/representante/representante.component';
 import { ParaleloComponent } from './paginas/paralelo/paralelo.component';
 import { UsuarioComponent } from './paginas/usuario/usuario.component';
 import { CursoComponent } from './paginas/curso/curso.component';
 import { ProfesoresComponent } from './paginas/profesores/profesores.component';
 import { ProfesorComponent } from './paginas/profesor/profesor.component';
+import { ReportEstudiantesComponent } from './paginas/report-estudiantes/report-estudiantes.component';
+import { ReportCursosComponent } from './paginas/report-cursos/report-cursos.component';
+import { ReportDocentesComponent } from './paginas/report-docentes/report-docentes.component';
+import { ReportAlumnoCursoComponent } from './paginas/report-alumno-curso/report-alumno-curso.component';
+import { ReportCalificacionesComponent } from './paginas/report-calificaciones/report-calificaciones.component';
+import { ReportMatriculasComponent } from './paginas/report-matriculas/report-matriculas.component';
+import { DocenteCursosComponent } from './paginas/docente-cursos/docente-cursos.component';
+import { DocenteCalificacionesComponent } from './paginas/docente-calificaciones/docente-calificaciones.component';
 
 
 const routes: Routes = [
@@ -31,12 +36,23 @@ const routes: Routes = [
       {
         path: 'docentes',
         children: [
-          { path: 'cursos', component: CursosComponent },
+          { path: 'cursos', component: DocenteCursosComponent },
+          { path: 'cursos/:id', component: DocenteCalificacionesComponent },
+
         ]
       },
-      { path: 'estudiantes', component: EstudiantesComponent },
+      { path: 'estudiantes', component: ReportEstudiantesComponent },
       { path: 'usuarios', component: UsuariosComponent },
-      { path: 'reportes', component: ReportesComponent },
+      {
+        path: 'reportes',
+        children: [
+          { path: 'cursos', component: ReportCursosComponent },
+          { path: 'docentes', component: ReportDocentesComponent },
+          { path: 'alumnocurso', component: ReportAlumnoCursoComponent },
+          { path: 'calificaciones', component: ReportCalificacionesComponent },
+          { path: 'matriculas', component: ReportMatriculasComponent },
+        ]
+      },
       {
         path: 'institucion',
         children: [
@@ -50,8 +66,6 @@ const routes: Routes = [
               { path: ':curso/editar/:paralelo', component: ParaleloComponent },
               { path: ':curso/ver/:paralelo', component: EstudiantesComponent },
               { path: ':curso/agregar/:paralelo', component: ParaleloComponent },
-
-
             ]
           },
           {
