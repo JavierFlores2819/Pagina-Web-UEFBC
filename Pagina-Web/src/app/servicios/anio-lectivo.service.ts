@@ -39,4 +39,22 @@ export class AnioLectivoService {
     return this.http.post<anio_lectivo[]>(parametros.APIURL + 'get', params);
   }
 
+
+   updateAnioLectivo(): Observable<{ data: anio_lectivo[], headers: string[] }> {
+    return this.http.put<anio_lectivo[]>(parametros.APIURL + 'update', this.params).pipe(
+      map(data => {
+        return { data, headers: this.headers };
+      })
+    );
+  }
+
+  addAnioLectivo(): Observable<{ data: anio_lectivo, headers: string[] }> {
+    return this.http.post<anio_lectivo>(parametros.APIURL + 'create', this.params).pipe(
+      map(data => {
+        return { data, headers: this.headers };
+      })
+    );
+  }
+
+  deleteAnioLectivo(){}
 }

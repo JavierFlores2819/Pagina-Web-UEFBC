@@ -25,6 +25,5 @@ export class AniosLectivosComponent {
       this.headers = data.headers;
     });
   }
-
   
 }

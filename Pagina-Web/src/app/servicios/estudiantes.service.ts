@@ -25,4 +25,30 @@ export class EstudiantesService {
       })
     );
   }
+
+  addEstudiante(): Observable<{ data: estudiante, headers: string[] }> {
+    return this.http.post<estudiante>(parametros.APIURL + 'create', this.params).pipe(
+      map(data => {
+        return { data, headers: this.headers };
+      })
+    );
+
+  }
+
+  updateEstudiante():Observable<{ data: estudiante, headers: string[] }> {
+    return this.http.post<estudiante>(parametros.APIURL + 'update', this.params).pipe(
+      map(data => {
+        return { data, headers: this.headers };
+      })
+    );
+
+  }
+
+ /* deleteEstudiante():Observable<any>{
+    return this.http.delete<estudiante>(parametros.APIURL + 'delete', this.params).pipe(
+      map(data => {
+        return { data, headers: this.headers };
+      })
+    );
+  }*/
 }

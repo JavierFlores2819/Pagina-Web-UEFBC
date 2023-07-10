@@ -46,5 +46,29 @@
                 <button type="submit" class="btn btn-dark">Guardar</button>
             </div>
         </form>
+        
+        <form action="" (ngSubmit)="guardarParalelo()">
+            <div class="row form-group">
+                <div class="form-group col-md-6">
+                    <label for="nomP">Paralelo:</label>
+                        <input type="text" class="form-control form-control-line" placeholder="A - B - C"
+                        name="nomP"
+                        #nomP="ngModel"
+                        [(ngModel)]="paralelo.PRLL_NOM">
+                </div>
+                    <div class="col-md-6">
+                        <label for="g">Profesor tutor:</label>
+                        <select class="form-control" id="" name="g" #g="ngModel" [(ngModel)]="paralelo.PRF_ID">
+                            <option value="0">Seleccione</option>
+                            <option *ngFor="let profe of listProfesores" [value]="profe.PRF_ID">{{profe.PRF_NOM}} {{profe.PRF_NOM2}} {{profe.PRF_APE}} {{profe.PRF_APE2}}</option>
+                        </select>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-success m-r-10">Agregar paralelo</button>
+                </div>
+            </div>
+            
+        </form>
+        {{paralelo|json}}
     </div>
 </div>
