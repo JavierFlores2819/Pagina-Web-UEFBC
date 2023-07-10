@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { curso } from '../modelos/clases/curso.Model';
+import { Curso } from '../modelos/clases/curso.Model';
 import * as parametros from '../utils/parametros';
 
 @Injectable({
@@ -18,11 +18,25 @@ export class CursosService {
 
   constructor(private http: HttpClient) { }
 
-  getCursos(): Observable<{ data: curso[], headers: string[] }> {
-    return this.http.post<curso[]>(parametros.APIURL + 'get', this.params).pipe(
+  getCursos(): Observable<{ data: Curso[], headers: string[] }> {
+    return this.http.post<Curso[]>(parametros.APIURL + 'get', this.params).pipe(
       map(data => {
         return { data, headers: this.headers };
       })
     );
   }
+
+  addCurso():Observable<any>{
+    return this.http.post<Curso>(parametros.APIURL+'create',this.params).pipe(map(data =>{
+      return {data,headers:this.headers}
+    }))
+  }
+
+  updateCurso():Observable<any>{
+    return this.http.put<Curso>(parametros.APIURL+'update',this.params).pipe(map(data =>{
+      return {data,headers:this.headers}
+    }))
+  }
+
+  deleteCurso(){}
 }

@@ -2,43 +2,51 @@
     <div class="card-body">
         <h2 class="card-title">Año Lectivo</h2>
         <hr class="border border-secondary opacity-25">
-        <form class="row g-3 align-items-end">
+        <form class="row g-3 align-items-end" (ngSubmit)="crearAnioL()">
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Fecha de inicio</label>
-                <input type="date" class="form-control" id="inputEmail4">
+                <input type="date" class="form-control" id="inputEmail4" name="fi"
+                #fi ="ngModel" [(ngModel)]="anioL.AL_INI" (change)="onDateChangeI($event)">
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Fecha de fin</label>
-                <input type="date" class="form-control" id="inputPassword4">
+                <input type="date" class="form-control" id="" name="ff" #ff = "ngModel" [(ngModel)] = "anioL.AL_FIN" (change)="onDateChangeF($event)">
             </div>
             <div class="col-3">
                 <label for="inputAddress" class="form-label">Periodos</label>
-                <input type="number" class="form-control" id="inputAddress" >
+                <input type="number" class="form-control" id="inputAddress" name="per"
+                #per = "ngModel" [(ngModel)]="anioL.AL_PRD">
             </div>
             <div class="col-3">
                 <label for="inputAddress2" class="form-label">Parciales</label>
-                <input type="number" class="form-control" id="inputAddress2">
+                <input type="number" class="form-control" id="inputAddress2" name="par"
+                #par = "ngModel" [(ngModel)]="anioL.AL_SUB_PRD">
             </div>
             <div class="col-md-3">
                 <label for="inputCity" class="form-label">Examenes</label>
-                <input type="numer" class="form-control" id="inputCity">
+                <input type="numer" class="form-control" id="" name="exam" 
+                #exam = "ngModel" [(ngModel)]="anioL.AL_EXM">
             </div>
             <div class="col-md-3">
                 <label for="inputCity" class="form-label">Extras</label>
-                <input type="number" class="form-control" id="inputCity">
+                <input type="number" class="form-control" id="" name="ext"
+                #ext="ngModel" [(ngModel)]="anioL.AL_EXT">
             </div>
             <div class="col-md-4">
                 <label for="inputCity" class="form-label">Porcentaje periodo</label>
-                <input type="number" class="form-control" id="inputCity">
+                <input type="number" class="form-control" id="" name="porPer"
+                #porPer = "ngModel" [(ngModel)]="anioL.AL_POR_PRD">
             </div>
             <div class="col-md-4">
                 <label for="inputCity" class="form-label">Porcentaje examenes</label>
-                <input type="number" class="form-control" id="inputCity">
+                <input type="number" class="form-control" id="" name="porExa"
+                #porExa ="ngModel" [(ngModel)]="anioL.AL_POR_PRD">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label pb-2">Estado</label>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [value]="anioL.AL_ESTADO"
+                    name="est" #est="ngModel" [(ngModel)]="anioL.AL_ESTADO">
                     <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
                   </div>
               </div>
@@ -46,5 +54,6 @@
                 <button type="submit" class="btn btn-dark">Guardar</button>
             </div>
         </form>
+        {{anioL|json}}
     </div>
 </div>

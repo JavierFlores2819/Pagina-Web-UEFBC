@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { curso } from 'src/app/modelos/clases/curso.Model';
+import { Curso } from 'src/app/modelos/clases/curso.Model';
 import { CursosService } from 'src/app/servicios/cursos.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { CursosService } from 'src/app/servicios/cursos.service';
   styleUrls: ['./cursos.component.scss']
 })
 export class CursosComponent {
-  data: curso[] = [];
+  data: Curso[] = [];
   headers: string[] = [];
   titulo = 'Cursos';
   icon = [
