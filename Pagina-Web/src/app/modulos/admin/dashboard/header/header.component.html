@@ -1,0 +1,24 @@
+<div class="head" [ngClass]="getHeadClass()">
+    <div class="head-content justify-content-end">
+        <div class="fw-bold">
+            Bienvenido {{usuario.nombre}}
+        </div>
+        <nav class="navbar navbar-expand">
+            <div class="container">
+                <div class="collapse navbar-collapse ">
+                    <ul class="navbar-nav">
+                        <li ngbDropdown class="d-inline-block">
+                            <button type="button" class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
+                               <i class="fa fa-user"></i>
+                            </button>
+                            <div ngbDropdownMenu class="dropdown-menu-end" aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem [routerLink]="routerLink">Mis datos</button>
+                                <button ngbDropdownItem (click)="openModal()">Cerrar sesión</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

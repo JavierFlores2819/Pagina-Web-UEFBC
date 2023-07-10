@@ -1,0 +1,17 @@
+body {
+    background: #263238;
+    background: linear-gradient(to right, #8fbad0, #263238);
+}
+
+.bg {
+    background-image: url('/assets/escudo-FBDCS.jfif');
+    background-position: center center;
+}
+
+.ng-valid:not(form).ng-touched{
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form).ng-touched{
+    border-left: 5px solid #a94442;
+}

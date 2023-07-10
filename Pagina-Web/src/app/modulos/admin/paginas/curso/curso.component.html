@@ -1,0 +1,30 @@
+<div class="card text-start border border-0 rounded shadow">
+    <div class="card-body">
+        <h2 class="card-title">Curso</h2>
+        <hr class="border border-secondary opacity-25">
+        <form class="row g-3 align-items-end" (ngSubmit)="guardarCurso()">
+            <div class="col-md-6">
+                <label for="nc" class="form-label">Nombre</label>
+                <input type="number" class="form-control" id="nc" name="nc" #nc="ngModel" [(ngModel)]="curso.CRS_NOM">
+            </div>
+            <div class="col-md-6">
+                <label for="crsTip" class="form-label">Tipo</label>
+                <input type="text" class="form-control" id="crsTip" name="crsTip" #crsTip="ngModel"
+                    [(ngModel)]="curso.CRS_TIP">
+            </div>
+            <div class="col-md-4">
+                <label for="" class="form-label pb-2">Estado</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="est" #est="ngModel" [(ngModel)] = "curso.CRS_ESTADO"
+                    [ngClass]="" >
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-dark">Guardar</button>
+            </div>
+        </form>
+
+        {{curso|json}}
+    </div>
+</div>
