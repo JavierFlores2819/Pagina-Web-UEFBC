@@ -12,3 +12,14 @@ export const authGuard: CanActivateFn = (route, state) => {
     return false;
   }
 };
+
+export const authGuardLogin: CanActivateFn = (route, state) => {
+  const auth=inject(AuthService);
+  const router=inject(Router);
+  if (auth.isLoggedIn()) {
+    router.navigate(['dashboard']);
+    return false;
+  }else{
+    return true;
+  }
+};

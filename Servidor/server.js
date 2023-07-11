@@ -181,9 +181,7 @@ app.put('/api/update', (req, res) => {
     const id_valor = id.valor;
 
     // Construir la consulta SQL de actualización
-    //slice desde la posicion 1 del array campos, map para crear un arreglo del numero de datos y join para crear un string del arreglo crado anteriormente
     const placeholders = campos.slice(1).map(campo => '?? = ?').join(', ');
-    //slice desde la posicion 1 del array campos, reduce para crear un nuevo array del array de objetos sin sus campos identificadores
     const valores = campos.slice(1).reduce((acc, campo) => [...acc, campo.nombre, campo.valor], []);
     const cadena = `UPDATE ${tabla} SET ${placeholders} WHERE ?? = ?`;
 

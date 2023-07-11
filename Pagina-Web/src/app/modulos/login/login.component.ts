@@ -17,8 +17,6 @@ export class LoginComponent implements OnInit {
   staticAlertClosed = false;
   successMessage = '';
 
-  userLoginOn: boolean = false;
-
   @ViewChild('staticAlert', { static: false })
   staticAlert!: NgbAlert;
   @ViewChild('selfClosingAlert', { static: false })

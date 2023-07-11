@@ -160,3 +160,73 @@ CREATE TABLE CALIFICACION(
     FOREIGN KEY (MTRC_ID) REFERENCES MATRICULA (MTRC_ID),
     FOREIGN KEY (ASG_PRLL_PRF_ID) REFERENCES ASG_PRLL_PRF (ASG_PRLL_PRF_ID)
 );
+
+CREATE TABLE periodo (
+    PRD_ID INT NOT NULL PRIMARY KEY,
+    AL_ID INT NOT NULL,
+    PRD_NOMBRE VARCHAR(10),
+    PRD_TIPO CHAR(1) CHECK (PRD_TIPO IN ('N', 'E')),
+    FOREIGN KEY (AL_ID) REFERENCES anio_lectivo (AL_ID)
+);
+
+CREATE TABLE subperiodo (
+    SPRD_ID INT NOT NULL PRIMARY KEY,
+    PRD_ID INT NOT NULL,
+    SPRD_INI DATE NOT NULL,
+    SPRD_FIN DATE NOT NULL,
+    PRD_TIPO CHAR(1) CHECK (PRD_TIPO IN ('N', 'E')),
+    FOREIGN KEY (PRD_ID) REFERENCES periodo (PRD_ID)
+);
+
+BEGIN
+    DECLARE i INT;
+    DECLARE j INT;
+    DECLARE k INT;
+    DECLARE anio INT;
+    DECLARE periodo INT;
+
+    SET anio =  NEW.AL_ID;
+    SET i = 1;
+
+    WHILE i <= NEW.AL_PRD DO
+        -- Insertar en la tabla periodo
+        INSERT INTO `periodo` (`AL_ID`, `PRD_NOM`, `PRD_TIPO`, `PRD_ESTADO`, `USR_CREADOR_ID`) VALUES (anio, CONCAT('P', i), 'N', 'A', NEW.USR_CREADOR_ID);
+
+        SET periodo = LAST_INSERT_ID();
+        SET j = 1;
+
+        WHILE j <= NEW.AL_SUB_PRD DO
+            -- Insertar en la tabla subperiodo
+            INSERT INTO subperiodo (PRD_ID, SPRD_NOM, SPRD_INI, SPRD_FIN, SPRD_TIPO, SPRD_ESTADO, USR_CREADOR_ID)
+            VALUES (periodo, CONCAT('S ', j), NEW.AL_INI, NEW.AL_FIN, 'N', 'I', NEW.USR_CREADOR_ID);
+
+            SET j = j + 1;
+        END WHILE;
+
+        SET j = 1;
+        WHILE j <= NEW.AL_EXM DO
+            -- Insertar en la tabla subperiodo
+            INSERT INTO subperiodo (PRD_ID, SPRD_NOM, SPRD_INI, SPRD_FIN, SPRD_TIPO, SPRD_ESTADO, USR_CREADOR_ID)
+            VALUES (periodo, CONCAT('E ', j), NEW.AL_INI, NEW.AL_FIN, 'E', 'I', NEW.USR_CREADOR_ID);
+
+            SET j = j + 1;
+        END WHILE;
+
+        SET i = i + 1;
+    END WHILE;
+
+INSERT INTO `periodo` (`AL_ID`, `PRD_NOM`, `PRD_TIPO`, `PRD_ESTADO`, `USR_CREADOR_ID`) VALUES (anio, CONCAT('P', i), 'X', 'A', NEW.USR_CREADOR_ID);
+
+SET periodo = LAST_INSERT_ID();
+SET k = 1;
+
+ WHILE k <= NEW.AL_EXT DO
+
+            -- Insertar en la tabla subperiodo
+            INSERT INTO subperiodo (PRD_ID, SPRD_NOM, SPRD_INI, SPRD_FIN, SPRD_TIPO, SPRD_ESTADO, USR_CREADOR_ID)
+            VALUES (periodo, CONCAT('X ', K), NEW.AL_INI, NEW.AL_FIN, 'X', 'I', NEW.USR_CREADOR_ID);
+
+        SET k = k + 1;
+END WHILE;
+
+END
