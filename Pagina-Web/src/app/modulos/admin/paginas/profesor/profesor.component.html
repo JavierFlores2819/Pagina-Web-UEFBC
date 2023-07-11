@@ -1,50 +1,91 @@
 <div class="card text-start border border-0 rounded shadow">
+    <div class="card-title">
+        <h1>{{titulo}}</h1>
+    </div>
+    <hr>
     <div class="card-body">
-        <h2 class="card-title">Docente</h2>
-        <hr class="border border-secondary opacity-25">
-        <form class="row g-3 align-items-end">
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Fecha de inicio</label>
-                <input type="date" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Fecha de fin</label>
-                <input type="date" class="form-control" id="inputPassword4">
-            </div>
-            <div class="col-3">
-                <label for="inputAddress" class="form-label">Periodos</label>
-                <input type="number" class="form-control" id="inputAddress" >
-            </div>
-            <div class="col-3">
-                <label for="inputAddress2" class="form-label">Parciales</label>
-                <input type="number" class="form-control" id="inputAddress2">
-            </div>
-            <div class="col-md-3">
-                <label for="inputCity" class="form-label">Examenes</label>
-                <input type="numer" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-3">
-                <label for="inputCity" class="form-label">Extras</label>
-                <input type="number" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-4">
-                <label for="inputCity" class="form-label">Porcentaje periodo</label>
-                <input type="number" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-4">
-                <label for="inputCity" class="form-label">Porcentaje examenes</label>
-                <input type="number" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-4">
-                <label for="" class="form-label pb-2">Estado</label>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
-                  </div>
-              </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-dark">Guardar</button>
-            </div>
+        <form action="" class="row g-3 align-items-end">
+            
+                <div class="col-md-12">
+                    <label class="form-label" for="dniP">Cédula del docente:</label>
+                    <input  class="form-control" type="text" name="dniP" #dniP="ngModel" [(ngModel)]="docente.PRF_DNI">
+                </div>
+            
+            
+                <div class="col-md-6">
+                    <label class="form-label" for="nom1">Primer nombre:</label>
+                    <input  class="form-control" type="text" name="nom1" #nom1="ngModel" [(ngModel)]="docente.PRF_NOM">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="nom2">Segundo nombre:</label>
+                    <input  class="form-control" type="text" name="nom2" #nom2="ngModel" [(ngModel)]="docente.PRF_NOM2">
+                </div>
+           
+            
+                <div class="col-md-6">
+                    <label class="form-label" for="ape1">Primer apellido:</label>
+                    <input  class="form-control" type="text" name="ape1" #ape1="ngModel" [(ngModel)]="docente.PRF_APE">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="ape2">Segundo apellido:</label>
+                    <input  class="form-control" type="text" name="ape2" #ape2="ngModel" [(ngModel)]="docente.PRF_APE2">
+                </div>
+           
+            
+                <div class="col-md-6">
+                    <label class="form-label" for="fecN" class="form-label">Fecha de nacimiento</label>
+                    <input  class="form-control" type="date" class="form-control" id="fecN" name="fecN" #fecN="ngModel"
+                        [(ngModel)]="docente.PRF_FECH_NAC">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="">Género del docente</label>
+                    <select  class="form-control" name="gen" id="" #gen="ngModel" [(ngModel)]="docente.PRF_GEN">
+                        <option value="">Seleccione</option>
+                        <option value="F">Femenino</option>
+                        <option value="M">Masculino</option>
+                    </select>
+                </div>
+            
+            
+                <div class="col-md-12">
+                    <label class="form-label" for="dir">Dirección domicilio:</label>
+                    <input class="form-control" type="text" name="dir" id="" #dir="ngModel" [(ngModel)]="docente.PRF_DIR">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="tel">Teléfono:</label>
+                    <input class="form-control" type="text" name="tel" #tel="ngModel" [(ngModel)]="docente.PRF_TEL" pattern="^[0-9]+">
+                </div>
+           
+            
+                <div class="col-md-6">
+                    <label class="form-label" for="cel">Celular:</label>
+                    <input class="form-control" type="text" name="cel" #cel="ngModel" [(ngModel)]="docente.PRF_CEL" pattern="^[0-9]+">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="cor">Correo:</label>
+                    <input class="form-control" type="text" name="mail" #tel="ngModel" [(ngModel)]="docente.PRF_MAIL">
+                </div>
+         
+                <div class="col-md-6">
+                    <label class="form-label" for="fecI" class="form-label">Fecha de ingreso a la institución</label>
+                    <input class="form-control" type="date" class="form-control" id="fecI" name="fecI" #fecI="ngModel"
+                        [(ngModel)]="docente.PRF_FECH_INGR_INST">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="fecM" class="form-label">Fecha de ingreso al magisterio</label>
+                    <input class="form-control" type="date" class="form-control" id="fecM" name="fecM" #fecM="ngModel"
+                        [(ngModel)]="docente.PRF_FECH_INGR_MAG">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="est" class="form-label pb-2">Estado</label>
+                    <div class="form-check form-switch">
+                        <input class="form-control" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                            name="est" (change)="onChangeCheck($event)">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
+                    </div>
+                </div>
+           
         </form>
+        {{docente|json}}
     </div>
 </div>

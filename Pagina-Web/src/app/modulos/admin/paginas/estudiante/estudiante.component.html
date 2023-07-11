@@ -57,6 +57,14 @@
                                     [value]="estudiante.EST_FECH_NAC">
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <label for="" class="form-label pb-2">Estado</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" 
+                                name="est"  (change)="onChangeCheck($event)">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
+                              </div>
+                          </div>
                         <h2>Dirección de residencia del estudiante</h2>
                         <hr>
                         <!--

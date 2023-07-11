@@ -11,7 +11,7 @@ import { CursosService } from 'src/app/servicios/cursos.service';
 export class CursoComponent {
   
   titulo:string = '';
-  curso:Curso={CRS_ID:0,CRS_NOM:0,CRS_TIP:"",CRS_ESTADO:"",USR_CREADOR_ID:0,FECHA_CREACION:""}
+  curso:Curso={CRS_ID:0,CRS_NOM:0,CRS_TIP:"",CRS_ESTADO:"",USR_CREADOR_ID:1,FECHA_CREACION:""}
   id:any;
   chbxValue:boolean=false;
   constructor(private aRoute:ActivatedRoute, private cursoService:CursosService){
@@ -19,24 +19,62 @@ export class CursoComponent {
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     
     if (this.id) {
       this.titulo = 'Editar Curso'
     } else {
-      this.titulo = 'Nuevo Cursp'
+      this.titulo = 'Nuevo Curso'
     }
+  }
+  
+  onChangeCheck(event:any){
+    if(event.target.checked){ 
+    this.curso.CRS_ESTADO="A";
+    }else{
+      this.curso.CRS_ESTADO="D";
+    }
+  }
+
+  cargarCurso(){
+    let param = {
+      "tabla": "curso",
+     "campos":["CRS_ID","CRS_NOM","CRS_TIP","CRS_ESTADO"],
+     "where_nombre": ["CRS_ID"],
+      "where_valor": this.id
+    }
+    this.cursoService.getCurso(param).subscribe(data=>{
+      console.log(data);
+      
+    })
   }
 
   guardarCurso(){
     if (this.id) {
-      this.cursoService.updateCurso().subscribe(data=>{
-
+      let  param ={
+        tabla: "curso",
+        campos: [
+          { nombre: "CRS_ID", valor: this.curso.CRS_ID},
+          { nombre: "CRS_NOM", valor: this.curso.CRS_NOM },
+          { nombre: "CRS_TIP", valor: this.curso.CRS_TIP },
+          { nombre: "CRS_ESTADO", valor: this.curso.CRS_ESTADO },
+          { nombre: "USR_CREADOR_ID", valor: this.curso.USR_CREADOR_ID },
+        ]
+      };
+      this.cursoService.updateCurso(param).subscribe(data=>{
+        console.log('editado');
+        
       })
     } else {
-      this.cursoService.addCurso().subscribe(data=>{
-
+      let param ={"tabla": "curso",
+        "campos": ["CRS_NOM", "CRS_TIP", "CRS_ESTADO","USR_CREADOR_ID"],
+        "valores": [this.curso.CRS_NOM,this.curso.CRS_TIP, this.curso.CRS_ESTADO,this.curso.USR_CREADOR_ID]
+      }
+      this.cursoService.addCurso(param).subscribe(data=>{
+        console.log('creado');
+        console.log(data);
+      },error=>{
+        console.log(error);
+        
       })
     }
 

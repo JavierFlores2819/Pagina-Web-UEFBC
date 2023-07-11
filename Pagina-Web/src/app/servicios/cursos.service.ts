@@ -11,8 +11,12 @@ export class CursosService {
 
   params = {
     tabla: "curso",
-    campos: ['CRS_ID as id', "CRS_NOM", "CRS_TIP","CRS_ESTADO"]
+    campos: ['CRS_ID as id', "CRS_NOM", "CRS_TIP","CRS_ESTADO"],
+    where_nombre: ["CRS_ESTADO"],
+    where_valor: "A"
   };
+
+ 
 
   headers = ['Nombre', 'Tipo', 'Estado']
 
@@ -25,18 +29,23 @@ export class CursosService {
       })
     );
   }
-
-  addCurso():Observable<any>{
-    return this.http.post<Curso>(parametros.APIURL+'create',this.params).pipe(map(data =>{
+  getCurso(soli:any):Observable<{data: Curso[],headers:string[]}>{
+    return this.http.post<Curso[]>(parametros.APIURL+'get',soli).pipe(map(data=>{
       return {data,headers:this.headers}
     }))
   }
 
-  updateCurso():Observable<any>{
-    return this.http.put<Curso>(parametros.APIURL+'update',this.params).pipe(map(data =>{
+  addCurso(soli:any):Observable<any>{
+    return this.http.post<Curso>(parametros.APIURL+'create',soli).pipe(map(data =>{
       return {data,headers:this.headers}
     }))
   }
 
-  deleteCurso(){}
+  updateCurso(soli:any):Observable<any>{
+    return this.http.put<Curso>(parametros.APIURL+'update',soli).pipe(map(data =>{
+      return {data,headers:this.headers}
+    }))
+  }
+
+  deleteCurso(soli:any){}
 }

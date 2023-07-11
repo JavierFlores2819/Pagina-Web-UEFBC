@@ -27,6 +27,14 @@ export class UsuarioComponent {
     
   }
 
+  onChangeCheck(event:any){
+    if(event.target.checked){ 
+    this.usuario.USR_ESTADO="A";
+    }else{
+      this.usuario.USR_ESTADO="D";
+    }
+  }
+
   guardarUsuario(){
 
   }

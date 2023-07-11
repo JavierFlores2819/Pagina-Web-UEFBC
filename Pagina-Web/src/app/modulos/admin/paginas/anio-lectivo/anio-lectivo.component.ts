@@ -10,9 +10,13 @@ import { AnioLectivoService } from 'src/app/servicios/anio-lectivo.service';
 })
 export class AnioLectivoComponent {
 
-  anioL:anio_lectivo={AL_ID:0,AL_INI:new Date(),AL_FIN:new Date(),AL_PRD:0,AL_SUB_PRD:0,AL_EXM:0,AL_EXT:0,AL_POR_PRD:0,AL_POR_EXM:0,AL_ESTADO:'',USR_CREADOR_AL_ID:0,FECHA_CREACION:''}
+  anioL:anio_lectivo={AL_ID:0,AL_INI:new Date(),AL_FIN:new Date(),AL_PRD:1,AL_SUB_PRD:1,AL_EXM:1,AL_EXT:1,AL_POR_PRD:1,AL_POR_EXM:1,AL_ESTADO:'',USR_CREADOR_AL_ID:1,FECHA_CREACION:''}
   id:any;
   title:string='';
+  inputEst:boolean = false;
+
+  enteredValue:any;
+
   constructor(private alService:AnioLectivoService, private aRoute:ActivatedRoute){
     this.id = this.aRoute.snapshot.paramMap.get('id');
 
@@ -27,6 +31,21 @@ export class AnioLectivoComponent {
 
     }
 
+    onInputChange(event: Event) {
+      const inputElement = event.target as HTMLInputElement;
+      const inputValue = Number(inputElement.value);
+  
+      if (isNaN(inputValue) || inputValue < 1) {
+        this.enteredValue = 1;
+      }
+    }
+    onChangeCheck(event:any){
+      if(event.target.checked){ 
+      this.anioL.AL_ESTADO="A";
+      }else{
+        this.anioL.AL_ESTADO="D";
+      }
+    }
   onDateChangeI(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     this.anioL.AL_INI = new Date(inputElement.value);

@@ -5,7 +5,7 @@
         <form class="row g-3 align-items-end" (ngSubmit)="guardarCurso()">
             <div class="col-md-6">
                 <label for="nc" class="form-label">Nombre</label>
-                <input type="number" class="form-control" id="nc" name="nc" #nc="ngModel" [(ngModel)]="curso.CRS_NOM">
+                <input type="number" class="form-control" id="nc" name="nc" #nc="ngModel" [(ngModel)]="curso.CRS_NOM" min="1" pattern="^[0-9]+">
             </div>
             <div class="col-md-6">
                 <label for="crsTip" class="form-label">Tipo</label>
@@ -15,8 +15,7 @@
             <div class="col-md-4">
                 <label for="" class="form-label pb-2">Estado</label>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="est" #est="ngModel" [(ngModel)] = "curso.CRS_ESTADO"
-                    [ngClass]="" >
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="est" (change)="onChangeCheck($event)" >
                     <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
                 </div>
             </div>

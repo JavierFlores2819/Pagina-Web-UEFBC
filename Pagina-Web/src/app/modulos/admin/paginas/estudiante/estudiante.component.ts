@@ -28,7 +28,13 @@ export class EstudianteComponent {
       }
       
     }
-
+    onChangeCheck(event:any){
+      if(event.target.checked){ 
+      this.estudiante.EST_ESTADO="A";
+      }else{
+        this.estudiante.EST_ESTADO="D";
+      }
+    }
     guardarEstudiante(){
       if (this.id) {
         this.estService.updateEstudiante().subscribe(data=>{

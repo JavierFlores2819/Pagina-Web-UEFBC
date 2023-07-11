@@ -1,50 +1,50 @@
 <div class="card text-start border border-0 rounded shadow">
+    <div class="card-title">
+        <h1>{{titulo}}</h1>
+    </div>
+    <hr>
     <div class="card-body">
-        <h2 class="card-title">Representante</h2>
-        <hr class="border border-secondary opacity-25">
-        <form class="row g-3 align-items-end">
+        <form class="row g-3 align-items-end" action="">
             <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Fecha de inicio</label>
-                <input type="date" class="form-control" id="inputEmail4">
+                <label class="form-label" for="dniP">Cédula del representante:</label>
+                <input  class="form-control" type="text" name="dniP" #dniP="ngModel" [(ngModel)]="repre.REP_DNI">
             </div>
             <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Fecha de fin</label>
-                <input type="date" class="form-control" id="inputPassword4">
+                <label class="form-label" for="nom1">Nombre:</label>
+                <input  class="form-control" type="text" name="nom1" #nom1="ngModel" [(ngModel)]="repre.REP_NOM">
             </div>
-            <div class="col-3">
-                <label for="inputAddress" class="form-label">Periodos</label>
-                <input type="number" class="form-control" id="inputAddress" >
+
+            <div class="col-md-12">
+                <label class="form-label" for="dir">Dirección domicilio:</label>
+                <input  class="form-control" type="text" name="dir" #dir="ngModel" [(ngModel)]="repre.REP_DIR">
             </div>
-            <div class="col-3">
-                <label for="inputAddress2" class="form-label">Parciales</label>
-                <input type="number" class="form-control" id="inputAddress2">
+            <div class="col-md-6">
+                <label class="form-label" for="tel">Teléfono:</label>
+                <input  class="form-control" type="text" name="tel" #tel="ngModel" [(ngModel)]="repre.REP_TEL" pattern="^[0-9]+">
             </div>
-            <div class="col-md-3">
-                <label for="inputCity" class="form-label">Examenes</label>
-                <input type="numer" class="form-control" id="inputCity">
+            <div class="col-md-6">
+                <label class="form-label" for="cel">Celular:</label>
+                <input  class="form-control" type="text" name="cel" #cel="ngModel" [(ngModel)]="repre.REP_CEL" pattern="^[0-9]+">
             </div>
-            <div class="col-md-3">
-                <label for="inputCity" class="form-label">Extras</label>
-                <input type="number" class="form-control" id="inputCity">
+            <div class="col-md-6">
+                <label class="form-label" for="cor">Correo:</label>
+                <input  class="form-control" type="text" name="cor" #cor="ngModel" [(ngModel)]="repre.REP_MAIL">
             </div>
-            <div class="col-md-4">
-                <label for="inputCity" class="form-label">Porcentaje periodo</label>
-                <input type="number" class="form-control" id="inputCity">
+            <div class="col-md-6">
+                <label class="form-label" for="repFam">??:</label>
+                <input  class="form-control" type="text" name="repFam" #repFam="ngModel" [(ngModel)]="repre.REP_REL_FAM">
             </div>
-            <div class="col-md-4">
-                <label for="inputCity" class="form-label">Porcentaje examenes</label>
-                <input type="number" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-4">
-                <label for="" class="form-label pb-2">Estado</label>
+
+            <div class="col-md-6">
+                <label class="form-label" for="est" class="form-label pb-2">Estado</label>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <input class="form-control" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                        name="est" (change)="onChangeCheck($event)">
                     <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
-                  </div>
-              </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-dark">Guardar</button>
+                </div>
             </div>
+            
         </form>
+        {{repre|json}}
     </div>
 </div>

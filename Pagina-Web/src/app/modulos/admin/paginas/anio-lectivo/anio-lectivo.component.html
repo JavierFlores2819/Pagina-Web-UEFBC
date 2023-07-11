@@ -15,38 +15,38 @@
             <div class="col-3">
                 <label for="inputAddress" class="form-label">Periodos</label>
                 <input type="number" class="form-control" id="inputAddress" name="per"
-                #per = "ngModel" [(ngModel)]="anioL.AL_PRD">
+                #per = "ngModel" [(ngModel)]="anioL.AL_PRD" min="1" pattern="^[0-9]+">
             </div>
             <div class="col-3">
                 <label for="inputAddress2" class="form-label">Parciales</label>
                 <input type="number" class="form-control" id="inputAddress2" name="par"
-                #par = "ngModel" [(ngModel)]="anioL.AL_SUB_PRD">
+                #par = "ngModel" [(ngModel)]="anioL.AL_SUB_PRD" min="1" pattern="^[0-9]+">
             </div>
             <div class="col-md-3">
                 <label for="inputCity" class="form-label">Examenes</label>
-                <input type="numer" class="form-control" id="" name="exam" 
-                #exam = "ngModel" [(ngModel)]="anioL.AL_EXM">
+                <input type="number" class="form-control" id="" name="exam" 
+                #exam = "ngModel" [(ngModel)]="anioL.AL_EXM" min="1" pattern="^[0-9]+">
             </div>
             <div class="col-md-3">
                 <label for="inputCity" class="form-label">Extras</label>
                 <input type="number" class="form-control" id="" name="ext"
-                #ext="ngModel" [(ngModel)]="anioL.AL_EXT">
+                #ext="ngModel" [(ngModel)]="anioL.AL_EXT" min="0" pattern="^[0-9]+">
             </div>
             <div class="col-md-4">
                 <label for="inputCity" class="form-label">Porcentaje periodo</label>
                 <input type="number" class="form-control" id="" name="porPer"
-                #porPer = "ngModel" [(ngModel)]="anioL.AL_POR_PRD">
+                #porPer = "ngModel" [(ngModel)]="anioL.AL_POR_PRD" min="1" pattern="^[0-9]+">
             </div>
             <div class="col-md-4">
                 <label for="inputCity" class="form-label">Porcentaje examenes</label>
                 <input type="number" class="form-control" id="" name="porExa"
-                #porExa ="ngModel" [(ngModel)]="anioL.AL_POR_PRD">
+                #porExa ="ngModel" [(ngModel)]="anioL.AL_POR_EXM" min="1" pattern="^[0-9]+">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label pb-2">Estado</label>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [value]="anioL.AL_ESTADO"
-                    name="est" #est="ngModel" [(ngModel)]="anioL.AL_ESTADO">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" 
+                    name="est"  (change)="onChangeCheck($event)">
                     <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
                   </div>
               </div>

@@ -2,52 +2,6 @@
     <div class="card-body">
         <h2 class="card-title">Usuario</h2>
         <hr class="border border-secondary opacity-25">
-        <form class="row g-3 align-items-end">
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Fecha de inicio</label>
-                <input type="date" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Fecha de fin</label>
-                <input type="date" class="form-control" id="inputPassword4">
-            </div>
-            <div class="col-3">
-                <label for="inputAddress" class="form-label">Periodos</label>
-                <input type="number" class="form-control" id="inputAddress" >
-            </div>
-            <div class="col-3">
-                <label for="inputAddress2" class="form-label">Parciales</label>
-                <input type="number" class="form-control" id="inputAddress2">
-            </div>
-            <div class="col-md-3">
-                <label for="inputCity" class="form-label">Examenes</label>
-                <input type="numer" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-3">
-                <label for="inputCity" class="form-label">Extras</label>
-                <input type="number" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-4">
-                <label for="inputCity" class="form-label">Porcentaje periodo</label>
-                <input type="number" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-4">
-                <label for="inputCity" class="form-label">Porcentaje examenes</label>
-                <input type="number" class="form-control" id="inputCity">
-            </div>
-            <div class="col-md-4">
-                <label for="" class="form-label pb-2">Estado</label>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
-                  </div>
-              </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-dark">Guardar</button>
-            </div>
-        </form>
-
-        <hr>
         <form (ngSubmit)="guardarUsuario()">
             <div class="row">
                 <div class="form-group col-md-6">
@@ -81,15 +35,17 @@
                             name="TipoU"
                             #TipoU="ngModel"
                             [(ngModel)]="usuario.USR_TIPO">
-                        </div>
-                        <div class="col-md-3">
-                            <label for="estU">Estado:</label>
-                            <input type="text" class="form-control form-control-line"
-                            name="estU"
-                            #estU="ngModel"
-                            [(ngModel)]="usuario.USR_ESTADO">
-                        </div>
+                        </div>                     
                     </div>
+
+                    <div class="col-md-4">
+                        <label for="" class="form-label pb-2">Estado</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" 
+                            name="est"  (change)="onChangeCheck($event)">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
+                          </div>
+                      </div>
 
                 </div>
             <div class="form-actions">
@@ -99,6 +55,6 @@
             </div>
         </form>
     </div>
-
+{{usuario|json}}
 
 </div>
