@@ -27,4 +27,12 @@ export class CursosComponent {
     });
   }
 
+  eliminar(curso:Curso){
+    let param=""
+    this.cursoService.updateCurso(param).subscribe(data=>{
+      console.log('editado eliminado');
+      
+    })
+  }
+
 }
