@@ -4,14 +4,26 @@
     </div>
     <hr>
     <div class="card-body">
-        <form class="row g-3 align-items-end" action="">
-            <div class="col-md-6">
+        <form class="row g-3 align-items-end" (ngSubmit)="guardarRepresentante()">
+            <div class="col-md-12">
                 <label class="form-label" for="dniP">Cédula del representante:</label>
                 <input  class="form-control" type="text" name="dniP" #dniP="ngModel" [(ngModel)]="repre.REP_DNI">
             </div>
             <div class="col-md-6">
-                <label class="form-label" for="nom1">Nombre:</label>
+                <label class="form-label" for="nom1">Primer Nombre:</label>
                 <input  class="form-control" type="text" name="nom1" #nom1="ngModel" [(ngModel)]="repre.REP_NOM">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="nom2">Segundo Nombre:</label>
+                <input  class="form-control" type="text" name="nom2" #nom2="ngModel" [(ngModel)]="repre.REP_NOM2">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="ape1">Primer Apellido:</label>
+                <input  class="form-control" type="text" name="ape1" #ape1="ngModel" [(ngModel)]="repre.REP_APE">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="ape2">Segundo Apellido:</label>
+                <input  class="form-control" type="text" name="ape2" #ape2="ngModel" [(ngModel)]="repre.REP_APE2">
             </div>
 
             <div class="col-md-12">
@@ -31,7 +43,7 @@
                 <input  class="form-control" type="text" name="cor" #cor="ngModel" [(ngModel)]="repre.REP_MAIL">
             </div>
             <div class="col-md-6">
-                <label class="form-label" for="repFam">??:</label>
+                <label class="form-label" for="repFam">Relacion Familiar:</label>
                 <input  class="form-control" type="text" name="repFam" #repFam="ngModel" [(ngModel)]="repre.REP_REL_FAM">
             </div>
 
@@ -42,6 +54,11 @@
                         name="est" (change)="onChangeCheck($event)">
                     <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
                 </div>
+            </div>
+
+            
+            <div class="col-12">
+                <button type="submit" class="btn btn-dark">Guardar</button>
             </div>
             
         </form>

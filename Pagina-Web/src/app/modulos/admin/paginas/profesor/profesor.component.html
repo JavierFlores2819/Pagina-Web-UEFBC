@@ -4,7 +4,7 @@
     </div>
     <hr>
     <div class="card-body">
-        <form action="" class="row g-3 align-items-end">
+        <form action="" class="row g-3 align-items-end" (ngSubmit)="guardarDocente()">
             
                 <div class="col-md-12">
                     <label class="form-label" for="dniP">Cédula del docente:</label>
@@ -83,6 +83,10 @@
                             name="est" (change)="onChangeCheck($event)">
                         <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
                     </div>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-dark">Guardar</button>
                 </div>
            
         </form>

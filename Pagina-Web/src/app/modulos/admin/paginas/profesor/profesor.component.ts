@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { profesor } from 'src/app/modelos/clases/profesor.Model';
+import { DocentesService } from 'src/app/servicios/docentes.service';
 
 @Component({
   selector: 'app-profesor',
@@ -9,12 +11,18 @@ import { profesor } from 'src/app/modelos/clases/profesor.Model';
 export class ProfesorComponent {
 
   titulo="Nuevo Docente"
+  id:any
   docente:profesor ={PRF_ID:0,PRF_DNI:"",PRF_NOM:"",PRF_NOM2:"",PRF_APE:"",PRF_APE2:"",PRF_FECH_NAC:"",PRF_GEN:"",PRF_DIR:"",PRF_CEL:"",
-    PRF_TEL:"",PRF_MAIL:"",PRF_FECH_INGR_INST:"",PRF_FECH_INGR_MAG:"",PRF_ESTADO:"",USR_CREADOR_ID:0,FECHA_CREACION:""}
-  constructor(){}
+    PRF_TEL:"",PRF_MAIL:"",PRF_FECH_INGR_INST:"",PRF_FECH_INGR_MAG:"",PRF_ESTADO:"D",USR_CREADOR_ID:1,FECHA_CREACION:""}
+ 
+    constructor(private docenteService:DocentesService, private aRoute:ActivatedRoute){
+      this.id = this.aRoute.snapshot.paramMap.get('id')
+    }
+
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+    if (this.id) {
+      this.titulo = "Editar Docente"
+    }
     
   }
 
@@ -24,6 +32,40 @@ export class ProfesorComponent {
     this.docente.PRF_ESTADO="A";
     }else{
       this.docente.PRF_ESTADO="D";
+    }
+  }
+
+  guardarDocente(){
+    if (this.id) {
+      //editar
+    } else {
+      // nuevo
+      let param ={
+        "tabla": "profesor",
+        "campos": ["PRF_DNI", "PRF_NOM",  "PRF_NOM2", "PRF_APE", "PRF_APE2", "PRF_FECH_NAC", "PRF_GEN", "PRF_DIR", "PRF_CEL", "PRF_TEL", "PRF_MAIL", "PRF_FECH_INGR_INST", "PRF_FECH_INGR_MAG", "PRF_ESTADO", "USR_CREADOR_ID"],
+        "valores": [this.docente.PRF_DNI,
+                    this.docente.PRF_NOM,
+                    this.docente.PRF_NOM2,
+                    this.docente.PRF_APE,
+                    this.docente.PRF_APE2,
+                    this.docente.PRF_FECH_NAC,
+                    this.docente.PRF_GEN,
+                    this.docente.PRF_DIR,
+                    this.docente.PRF_CEL,
+                    this.docente.PRF_TEL,
+                    this.docente.PRF_MAIL,
+                    this.docente.PRF_FECH_INGR_INST,
+                    this.docente.PRF_FECH_INGR_MAG,
+                    this.docente.PRF_ESTADO,
+                    this.docente.USR_CREADOR_ID]
+      }
+      this.docenteService.addDocente(param).subscribe(data=>{
+        console.log('profesor creado');
+        
+      },error=>{
+        console.log(error);
+        
+      })
     }
   }
 

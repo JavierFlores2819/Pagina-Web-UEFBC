@@ -26,10 +26,11 @@ export class EstudiantesService {
     );
   }
 
-  addEstudiante(): Observable<{ data: estudiante, headers: string[] }> {
-    return this.http.post<estudiante>(parametros.APIURL + 'create', this.params).pipe(
+  addEstudiante(soli:any): Observable<any> {
+    let headers:any
+    return this.http.post<estudiante>(parametros.APIURL + 'create', soli).pipe(
       map(data => {
-        return { data, headers: this.headers };
+        return { data, headers: headers };
       })
     );
 

@@ -2,15 +2,15 @@
     <div class="card-body">
         <h2 class="card-title">Año Lectivo</h2>
         <hr class="border border-secondary opacity-25">
-        <form class="row g-3 align-items-end" (ngSubmit)="crearAnioL()">
+        <form class="row g-3 align-items-end" (ngSubmit)="guardarAnioL()">
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Fecha de inicio</label>
                 <input type="date" class="form-control" id="inputEmail4" name="fi"
-                #fi ="ngModel" [(ngModel)]="anioL.AL_INI" (change)="onDateChangeI($event)">
+                #fi ="ngModel" [(ngModel)]="anioL.AL_INI" >
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Fecha de fin</label>
-                <input type="date" class="form-control" id="" name="ff" #ff = "ngModel" [(ngModel)] = "anioL.AL_FIN" (change)="onDateChangeF($event)">
+                <input type="date" class="form-control" id="" name="ff" #ff = "ngModel" [(ngModel)] = "anioL.AL_FIN">
             </div>
             <div class="col-3">
                 <label for="inputAddress" class="form-label">Periodos</label>

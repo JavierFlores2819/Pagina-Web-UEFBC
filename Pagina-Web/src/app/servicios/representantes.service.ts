@@ -25,4 +25,14 @@ export class RepresentantesService {
       })
     );
   }
+
+  addRepresentante(soli:any): Observable<any>{
+    const headers = ['Cedula', 'Primer N', 'Segundo N', 'Primer A','Segundo A','Direccion','Celular','Telefono','Email','Relacion Fam', 'Estado','Usuario']
+    
+    return this.http.post<representante>(parametros.APIURL + 'create', soli).pipe(
+      map(data => {
+        return { data, headers: headers };
+      })
+    );
+  }
 }

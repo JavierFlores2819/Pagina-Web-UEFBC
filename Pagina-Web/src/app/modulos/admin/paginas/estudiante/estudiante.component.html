@@ -6,15 +6,15 @@
                     <form class="form-material m-t-40" (ngSubmit)="guardarEstudiante()">
                         <h2>Información del estudiante nuevo</h2>
                         <hr>
-                        <div class="row form-group">
-                            <div class=" col-md-6">
+                        
+                            <div class="col-md-12">
                                 <label for="ce">Cédula:</label>
                                 <input  class="form-control" type="text" name="ce"
                                 #ce="ngModel"
                                 [(ngModel)]="estudiante.EST_DNI">
                             </div>
-                        </div>
-                        <div class="row form-group ">
+                        
+                     
                             <div class="col-md-3">
                                 <label for="apeP">Primer apellido:</label>
                                 <input  class="form-control" type="text" name="apeP"
@@ -39,8 +39,8 @@
                                 #nomb2="ngModel"
                                 [(ngModel)]="estudiante.EST_NOM2">
                             </div>
-                        </div>
-                        <div class="row form-group">
+                     
+            
                             <div class="col-md-6">
                                 <label for="g">Género:</label>
                                 <select class="form-control" id="" name="g" #g="ngModel" (select)="estudiante.EST_GEN" [(ngModel)]="estudiante.EST_GEN">
@@ -56,7 +56,7 @@
                                     [(ngModel)]='estudiante.EST_FECH_NAC'
                                     [value]="estudiante.EST_FECH_NAC">
                             </div>
-                        </div>
+          
                         <div class="col-md-4">
                             <label for="" class="form-label pb-2">Estado</label>
                             <div class="form-check form-switch">
@@ -67,25 +67,26 @@
                           </div>
                         <h2>Dirección de residencia del estudiante</h2>
                         <hr>
-                        <!--
-                        <div class="row form-group">
+                     
+          
                             <div class="col-md-6">
                                 <label for="pro">Provincia:</label>
-                                <select class="form-control" id="" name="pro" #pro="ngModel" [(ngModel)]="estudiante.pro">
+                                <select class="form-control" id="" name="pro" #pro="ngModel" [(ngModel)]="estudiante.EST_PRO">
                                     <option value="">Seleccione</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="can">Cantón:</label>
-                                <select class="form-control" id="" name="can" #can="ngModel" [(ngModel)]="estudiante.canton">
+                                <select class="form-control" id="" name="can" #can="ngModel" [(ngModel)]="estudiante.EST_CAN">
                                     <option value="">Seleccione</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="row form-group">
+                 
+                          
+                   
                             <div class="col-md-6">
                                 <label for="pa">Parroquia:</label>
-                                <select class="form-control" id="" name="pa" #pa="ngModel" [(ngModel)]="estudiante.parroquia">
+                                <select class="form-control" id="" name="pa" #pa="ngModel" [(ngModel)]="estudiante.EST_PARR">
                                     <option value="">Seleccione</option>
                                 </select>
                             </div>
@@ -93,51 +94,53 @@
                                 <label for="cue">Código único eléctrico:</label>
                                 <input  class="form-control" type="text" name="cue"
                                 #cue="ngModel"
-                                [(ngModel)]="estudiante.codUnicoElec">
+                                [(ngModel)]="estudiante.EST_CUE">
                             </div>
-                        </div>
-                        <div class="row form-group">
+
+
+                        
+               
                             <div class="col-md-12">
                                 <label for="de">Dirección exacta:</label>
                                 <input  class="form-control" type="text" name="de"
                                 #de="ngModel"
-                                [(ngModel)]="estudiante.direccion">
+                                [(ngModel)]="estudiante.EST_DIR">
                             </div>
-                        </div> 
-                        -->
+
                         
                         <h2>Nacionalidad del estudiante</h2>
                         <hr>
-                        <!--
+                     
                         <div class="row form-group">
                             <div class="col-md-6">
                                 <label for="nac">Nacionalidad:</label>
                                 <input  class="form-control" type="text" name="nac"
                                 #nac="ngModel"
-                                [(ngModel)]="estudiante.nacional">
+                                [(ngModel)]="estudiante.EST_NAC">
                             </div>
                             <div class="col-md-6">
                                 <label for="ae">Autodefinición étnica:</label>
-                                <select class="form-control" id="" name="ae" #ae="ngModel" [(ngModel)]="estudiante.etnia">
+                                <select class="form-control" id="" name="ae" #ae="ngModel" [(ngModel)]="estudiante.EST_ETN">
                                     <option value="">Seleccione</option>
                                 </select>
                             </div>
                         </div>
+                         
                         <div class="row form-group">
                             <div class="col-md-6">
                                 <label for="nacE">Nacionalidad étnica:</label>
                                 <input  class="form-control" type="text" name="nacE"
                                 #nacE="ngModel"
-                                [(ngModel)]="estudiante.nacEtnia">
+                                [(ngModel)]="estudiante.EST_NAC_ETN">
                             </div>
                             <div class="col-md-6">
                                 <label for="coE">Comunidad étnica:</label>
                                 <input  class="form-control" type="text" name="coE"
                                 #coE="ngModel"
-                                [(ngModel)]="estudiante.comunEtnia">
+                                [(ngModel)]="estudiante.EST_COM_ETN">
                             </div>
                         </div>
-                        -->
+                     
                         <h2>Necesidades eduactivas especiales asociadaso no a una discapacidad</h2>
                         <hr>
                         <div class="row">
@@ -218,45 +221,28 @@
                         </div>
                         <h2>Información tecnológica y de comunicación</h2>
                         <hr>
-    <!--
-                        <div class="row">
-                            <div class="col-md-6">
+    
+          
+                       
                                 <label for="">¿Qué equipos de comunicación dispoe en su hogar?</label>
     
-                                <div class="form-check" *ngFor="let item of listEquiposE">
+                                <div class="form-check mb-3" *ngFor="let item of listEquiposE">
                                     <label class="custom-control custom-checkbox">
-                                        <input id="1" type="checkbox" class="custom-control-input" [value]="item.value" (change)="onChangeCheck($event)">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">{{item.nombre}}</span>
+                                        <input id="1" type="checkbox" class="form-check-input" [value]="item.value" (change)="onChangeCheckE($event)">
+                                        <span class="form-check-label">{{item.nombre}}</span>
                                     </label>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="rb4">En su hogar dispone de internet?:</label>
-                            <div class="form-check" name="rb4">
-                                <label class="custom-control custom-radio">
-                                    <input id="rb4S" name="radio" type="radio" class="custom-control-input">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Si</span>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="custom-control custom-radio">
-                                    <input id="rb4N" name="radio" type="radio" class="custom-control-input">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">No</span>
-                                </label>
-                            </div>
-                            </div>
-                        </div>
+                           
+   
+                     
 
-                        -->
-                        <div class="row form-group">
+                        
+                
                             <div class="col-md-12">
                                 <label for="">Observación:</label>
                                 <textarea class="form-control" name="" id="" cols="30" rows="6"></textarea>
                             </div>
-                        </div>
+                
                         <div class="form-actions">
                             <button type="submit" class="btn btn-success m-r-10"> Guardar
                             </button>

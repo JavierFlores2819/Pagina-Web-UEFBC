@@ -54,14 +54,14 @@ export class AnioLectivoService {
     );
   }
 
-  addAnioLectivo(): Observable<{ data: anio_lectivo, headers: string[] }> {
+  addAnioLectivo(param:any): Observable<any> {
     const params = {
       tabla: "anio_lectivo ORDER BY AL_ESTADO ASC",
       campos: ["AL_ID as value", "concat(DATE_FORMAT(AL_INI, '%d/%m/%Y'),' - ',DATE_FORMAT(AL_FIN, '%d/%m/%Y')) as name"]
     };
-    const headers = ['Fecha inicio', 'Fecha fin', 'Periodo', 'Subperiodo', 'Estado']
-
-    return this.http.post<anio_lectivo>(parametros.APIURL + 'create', params).pipe(
+    const headers = ['Fecha inicio', 'Fecha fin', 'Periodos', 'Subperiodo','Examenes','ExamenesExtra','PromPer','PromExam', 'Estado','Usuario']
+  
+    return this.http.post<anio_lectivo>(parametros.APIURL + 'create', param).pipe(
       map(data => {
         return { data, headers: headers };
       })

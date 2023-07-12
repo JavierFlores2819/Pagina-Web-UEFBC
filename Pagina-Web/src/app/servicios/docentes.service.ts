@@ -41,4 +41,12 @@ export class DocentesService {
       })
     );
   }
+
+  addDocente(soli:any):Observable<any>{
+    const headers = ['Cedula', 'Primer N', 'Segundo N', 'Primer A','Segundo A','Fecha nacimiento','Genero','Direccion', 'Celular','Telefono','Mail','Fecha Ingreso','Fecha Magist','Estado','Usuario']
+     
+      return this.http.post<profesor>(parametros.APIURL+'create',soli).pipe(map(data =>{
+      return {data,headers:headers}
+    }))
+  }
 }

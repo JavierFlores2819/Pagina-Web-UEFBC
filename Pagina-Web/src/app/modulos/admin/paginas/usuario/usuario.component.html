@@ -3,51 +3,67 @@
         <h2 class="card-title">Usuario</h2>
         <hr class="border border-secondary opacity-25">
         <form (ngSubmit)="guardarUsuario()">
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="nomU">Cédula del ususario:</label>
-                    <input type="text" class="form-control form-control-line"
-                    name="nomU"
-                    #nomU="ngModel"
-                    [(ngModel)]="usuario.USR_DNI">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="ape">Usuario:</label>
-                    <input type="text" class="form-control form-control-line"
-                    name="apeU"
-                    #apeU="ngModel"
-                    [(ngModel)]="usuario.USR">
+
+            <div class="col-md-12">
+                <label class="form-label" for="dniP">Cédula del usuario:</label>
+                <input class="form-control" type="text" name="dniP" #dniP="ngModel" [(ngModel)]="usuario.USR_DNI">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="nom1">Primer Nombre:</label>
+                <input class="form-control" type="text" name="nom1" #nom1="ngModel" [(ngModel)]="usuario.USR_NOM">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="nom2">Segundo Nombre:</label>
+                <input class="form-control" type="text" name="nom2" #nom2="ngModel" [(ngModel)]="usuario.USR_NOM2">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="nape1">Primer Apellido:</label>
+                <input class="form-control" type="text" name="ape1" #ape1="ngModel" [(ngModel)]="usuario.USR_APE">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="ape2">Segundo Apellido:</label>
+                <input class="form-control" type="text" name="ape2" #ape2="ngModel" [(ngModel)]="usuario.USR_APE2">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label" for="usu">Usuario:</label>
+                <input class="form-control" type="text" name="usu" #usu="ngModel" [(ngModel)]="usuario.USR">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label" for="tel">Teléfono:</label>
+                <input  class="form-control" type="text" name="tel" #tel="ngModel" [(ngModel)]="usuario.USR_TEL" pattern="^[0-9]+">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="pswdU">Correo:</label>
+                <input type="email" class="form-control" name="emailU" #mailU="ngModel"
+                    [(ngModel)]="usuario.USR_MAIL">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="pswdU">Correo:</label>
+                <input type="password" class="form-control" name="emailU" #pswdU="ngModel"
+                    [(ngModel)]="usuario.USR_PSWD">
+            </div>
+            <div class="row form-group">
+                <div class="col-md-3">
+                    <label for="tipoU">Tipo:</label>
+                    <input type="text" class="form-control form-control-line" name="TipoU" #TipoU="ngModel"
+                        [(ngModel)]="usuario.USR_TIPO">
                 </div>
             </div>
 
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="pswdU">Correo:</label>
-                        <input type="password" class="form-control"
-                        name="emailU"
-                        #pswdU="ngModel"
-                        [(ngModel)]="usuario.USR_PSWD">
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-3">
-                            <label for="tipoU">Tipo:</label>
-                            <input type="text" class="form-control form-control-line"
-                            name="TipoU"
-                            #TipoU="ngModel"
-                            [(ngModel)]="usuario.USR_TIPO">
-                        </div>                     
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="" class="form-label pb-2">Estado</label>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" 
-                            name="est"  (change)="onChangeCheck($event)">
-                            <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
-                          </div>
-                      </div>
-
+            <div class="col-md-4">
+                <label for="" class="form-label pb-2">Estado</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="est"
+                        (change)="onChangeCheck($event)">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Estado</label>
                 </div>
+            </div>
+
+
             <div class="form-actions">
                 <button type="submit" class="btn btn-success m-r-10"> Guardar
                 </button>
@@ -55,6 +71,6 @@
             </div>
         </form>
     </div>
-{{usuario|json}}
+    {{usuario|json}}
 
 </div>

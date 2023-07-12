@@ -12,7 +12,7 @@ export class UsuarioComponent {
 
   id:any;
   titulo:string = '';
-  usuario:usuario={USR_ID:0,USR_DNI:"",USR:"",USR_NOM:"",USR_MAIL:"",USR_TEL:"",USR_PSWD:"",USR_ESTADO:"A",USR_TIPO:"",FECHA_CREACION:""}
+  usuario:usuario={USR_ID:0,USR_DNI:"",USR_NOM:"",USR_NOM2:"",USR_APE:"",USR_APE2:"",USR_TEL:"",USR_MAIL:"",USR:"",USR_PSWD:"",USR_ESTADO:"D",USR_TIPO:""}
 
   constructor(private usuService:UsuariosService, private aRoute:ActivatedRoute){
     this.id = this.aRoute.snapshot.paramMap.get('id')
@@ -36,6 +36,33 @@ export class UsuarioComponent {
   }
 
   guardarUsuario(){
-
+    if (this.id) {
+      //editar
+      let param=""
+    } else {
+      //nuevo
+      let param ={
+        "tabla": "usuario",
+        "campos": ["USR_DNI", "USR_NOM", "USR_NOM2", "USR_APE", "USR_APE2", "USR_TEL", "USR_MAIL", "USR", "USR_PSWD", "USR_ESTADO", "USR_TIPO"],
+        "valores": [this.usuario.USR_DNI,
+                    this.usuario.USR_NOM,
+                    this.usuario.USR_NOM2,
+                    this.usuario.USR_APE,
+                    this.usuario.USR_APE2,
+                    this.usuario.USR_TEL,
+                    this.usuario.USR_MAIL,
+                    this.usuario.USR,
+                    this.usuario.USR_PSWD,
+                    this.usuario.USR_ESTADO,
+                    this.usuario.USR_TIPO]
+      }
+      this.usuService.addUsuario(param).subscribe(data=>{
+        console.log('usu creado');
+        
+      },error=>{
+        console.log(error);
+        
+      })
+    }
   }
 }

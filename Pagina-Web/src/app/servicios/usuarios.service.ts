@@ -51,4 +51,14 @@ export class UsuariosService {
     return throwError(() => new Error('Algo fallo, por favor intente nuevamente.'))
   }
 
+  addUsuario(soli:any):Observable<any>{
+    const headers = ['Cedula', 'Primer N', 'Segundo N', 'Primer A','Segundo A','Direccion','Celular','Telefono','Email','Relacion Fam', 'Estado','Usuario']
+    
+    return this.http.post<usuario>(parametros.APIURL + 'create', soli).pipe(
+      map(data => {
+        return { data, headers: headers };
+      })
+    );
+  }
+
 }
