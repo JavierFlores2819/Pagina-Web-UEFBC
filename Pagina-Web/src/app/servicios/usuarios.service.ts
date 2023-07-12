@@ -52,12 +52,25 @@ export class UsuariosService {
   }
 
   addUsuario(soli:any):Observable<any>{
-    const headers = ['Cedula', 'Primer N', 'Segundo N', 'Primer A','Segundo A','Direccion','Celular','Telefono','Email','Relacion Fam', 'Estado','Usuario']
+    const headers = ['Cedula', 'Primer N', 'Segundo N', 'Primer A','Segundo A','Telefono','Email','Usr','pswd', 'estado','tipo']
     
     return this.http.post<usuario>(parametros.APIURL + 'create', soli).pipe(
       map(data => {
         return { data, headers: headers };
       })
+    );
+  }
+
+  getUsuario(soli:any): Observable<{ data: usuario[], headers: string[] }> {
+
+
+    const headers = ['Cédula', 'usuario', 'Tipo', 'Estado']
+
+    return this.http.post<usuario[]>(parametros.APIURL + 'get', soli,).pipe(
+      map(data => {
+        return { data, headers: headers };
+      }),
+      catchError(this.handleError)
     );
   }
 

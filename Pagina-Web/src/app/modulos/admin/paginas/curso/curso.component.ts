@@ -38,10 +38,20 @@ export class CursoComponent {
   cargarCurso(){
     let param = {
       "tabla": "curso",
-     "campos":["CRS_ID","CRS_NOM","CRS_TIP","CRS_ESTADO"],
-     "where_nombre": ["CRS_ID"],
-      "where_valor": this.id
-    }
+      "campos": [
+    "CRS_ID","CRS_NOM","CRS_TIP","CRS_ESTADO","USR_CREADOR_ID"
+      ],
+      "where": [
+          {
+              "nombre": "CRS_ID",
+              "valor": this.id,
+              "condicion":"=",
+              "tipo": "&&"
+          }
+      ]
+  }
+  
+  
     this.cursoService.getCurso(param).subscribe(data=>{
       console.log(data);
       
@@ -80,3 +90,15 @@ export class CursoComponent {
 
   }
 }
+
+/**
+ * conclusion x cada objetivo
+ * conclucion aporte a la disciplina que aporta a la ingenieria de software
+ * conclusion si ubo limitaciones
+ * 
+ * / */
+
+ /**
+  * recomendaciones
+  * oportunidades que queda a implementar o a investigar
+  * / */
