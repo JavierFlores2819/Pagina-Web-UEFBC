@@ -26,7 +26,36 @@ export class UsuarioComponent {
     }
     
   }
-
+  cargarUsuario(){
+    let param = {
+      "tabla": "usuario",
+      "campos": ["USR_ID",
+          "USR_DNI",
+          "USR_NOM",
+          "USR_NOM2",
+          "USR_APE",
+          "USR_APE2",
+          "USR_TEL",
+          "USR_MAIL",
+          "USR",
+          "USR_PSWD",
+          "USR_ESTADO",
+          "USR_TIPO"
+         
+      ],
+      "where": [
+          {
+              "nombre": "USR_ID",
+              "valor": this.id,
+                 "condicion":"=",
+              "tipo": "&&"
+          }
+      ]
+  }
+    this.usuService.getUsu(param).subscribe(data=>{
+      this.usuario.USR_ID= data.data[0].USR_ID
+    })
+  }
   onChangeCheck(event:any){
     if(event.target.checked){ 
     this.usuario.USR_ESTADO="A";

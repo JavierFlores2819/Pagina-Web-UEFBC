@@ -61,4 +61,20 @@ export class UsuariosService {
     );
   }
 
+  getUsu(soli:any): Observable<{ data: usuario[], headers: string[] }> {
+    const params = {
+      tabla: "usuario",
+      campos: ["USR_ID as id", "USR_DNI", "USR", "USR_TIPO", "USR_ESTADO"]
+    };
+
+    const headers = ['Cédula', 'usuario', 'Tipo', 'Estado']
+
+    return this.http.post<usuario[]>(parametros.APIURL + 'get',soli,).pipe(
+      map(data => {
+        return { data, headers: headers };
+      }),
+      catchError(this.handleError)
+    );    
+  }
+
 }

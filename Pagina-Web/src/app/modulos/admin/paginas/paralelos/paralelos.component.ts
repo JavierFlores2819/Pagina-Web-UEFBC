@@ -23,7 +23,7 @@ export class ParalelosComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('curso');
-
+    console.log(id)
     this.paraleloService.getParalelos(id).subscribe(data => {
       this.data = data.data;
       this.titulo += data.data[0].CURSO;
