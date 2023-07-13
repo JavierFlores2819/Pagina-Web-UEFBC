@@ -10,6 +10,7 @@ export class estudiante {
     EST_GEN: string;
     EST_ESTADO: string;
     REP_ID: number;
+    REL_EST_REP:string
     USR_CREADOR_ID: number;
     //Dirección de residencia del estudiante
     EST_PRO:string 
@@ -30,7 +31,7 @@ export class estudiante {
     EST_RAD:string 
     EST_PC:string 
     EST_CEL:string
-    constructor(EST_ID: number, EST_DNI: string, EST_NOM: string, EST_NOM2: string, EST_APE: string, EST_APE2: string, EST_FECH_NAC: string, EST_GEN: string, EST_ESTADO: string, REP_ID: number, USR_CREADOR_ID: number,
+    constructor(EST_ID: number, EST_DNI: string, EST_NOM: string, EST_NOM2: string, EST_APE: string, EST_APE2: string, EST_FECH_NAC: string, EST_GEN: string, EST_ESTADO: string, REP_ID: number,REL_EST_REP:string, USR_CREADOR_ID: number,
         EST_PRO:string,EST_CAN:string,EST_PARR:string,EST_CUE:string,EST_DIR:string,EST_NAC:string,EST_ETN:string,EST_NAC_ETN:string,EST_COM_ETN:string,NEE_DIS:string,NES_NAD:string,ENF_CAT:string,CONADIS:string,EST_INTE:string,
         EST_TV:string,EST_RAD:string,EST_PC:string,EST_CEL:string) {
         this.EST_ID = EST_ID;
@@ -43,6 +44,7 @@ export class estudiante {
         this.EST_GEN = EST_GEN;
         this.EST_ESTADO = EST_ESTADO;
         this.REP_ID = REP_ID;
+        this.REL_EST_REP = REL_EST_REP
         this.USR_CREADOR_ID = USR_CREADOR_ID;
         this.EST_PRO=EST_PRO 
         this.EST_CAN=EST_CAN 

@@ -3,6 +3,21 @@
             <div class="card">
                 <div class="card-body">
                     <h1>{{titulo}}</h1>
+                    <hr>
+                    <div class="card-body">
+                        <label for="">Ingrese la cédula para asignar un representante:</label>
+                        <input type="text" class="form-control" placeholder="Buscar curso"
+                        #buscarU
+                        (keyup)="buscarR(buscarU.value)"
+                        >
+                     </div>
+                     
+                        <input class="form-control" type="text" value="{{repre.REP_APE}} {{repre.REP_APE2}} {{repre.REP_NOM}} {{repre.REP_NOM2}}"  disabled="true">
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success m-r-10" (click)="addRepresentante()"> Asignar
+                            </button>
+                        </div>
+                     
                     <form class="form-material m-t-40" (ngSubmit)="guardarEstudiante()">
                         <h2>Información del estudiante nuevo</h2>
                         <hr>
@@ -148,14 +163,16 @@
                                 <label for="rb1">Tiene necesidad educativa especial asociada a la discapacidad:</label>
                             <div class="form-check" name="rb1">
                                 <label class="custom-control custom-radio">
-                                    <input id="rb1S" name="radio" type="radio" class="custom-control-input">
+                                    <input id="rb1S" type="radio" class="custom-control-input" value="S" name="rdbneeD" #rdbneeD="ngModel"
+                                    [(ngModel)]="estudiante.NEE_DIS">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Si</span>
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="custom-control custom-radio">
-                                    <input id="rb1N" name="radio" type="radio" class="custom-control-input">
+                                    <input id="rb1N"  type="radio" class="custom-control-input" value="N" name="rdb2neeD" #rdb2neeD="ngModel"
+                                    [(ngModel)]="estudiante.NEE_DIS">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">No</span>
                                 </label>
@@ -165,14 +182,16 @@
                                 <label for="rb2">Tiene necesidad educativa especial no asociada a la discapacidad:</label>
                             <div class="form-check" name="rb2">
                                 <label class="custom-control custom-radio">
-                                    <input id="rb2S" name="radio" type="radio" class="custom-control-input">
+                                    <input id="rb2S" type="radio" class="custom-control-input" value="S" name="rdbnesN" #rdbnesN="ngModel"
+                                    [(ngModel)]="estudiante.NES_NAD">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Si</span>
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="custom-control custom-radio">
-                                    <input id="rb2N" name="radio" type="radio" class="custom-control-input">
+                                    <input id="rb2N"  type="radio" class="custom-control-input" value="N" name="rdb2nesN" #rdb2nesN="ngModel"
+                                    [(ngModel)]="estudiante.NES_NAD">>
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">No</span>
                                 </label>
@@ -184,14 +203,16 @@
                                 <label for="rb3">Posee enfermedad catastrófica:</label>
                             <div class="form-check" name="rb3">
                                 <label class="custom-control custom-radio">
-                                    <input id="rb3S" name="radio" type="radio" class="custom-control-input">
+                                    <input id="rb3S" type="radio" class="custom-control-input" value="S" name="rdbEC" #rdbEC="ngModel"
+                                    [(ngModel)]="estudiante.ENF_CAT">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Si</span>
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="custom-control custom-radio">
-                                    <input id="rb3N" name="radio" type="radio" class="custom-control-input">
+                                    <input id="rb3N"  type="radio" class="custom-control-input" value="N" name="rdb2EC" #rdb2EC="ngModel"
+                                    [(ngModel)]="estudiante.ENF_CAT">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">No</span>
                                 </label>
@@ -201,14 +222,16 @@
                                 <label for="rb4">Tiene carnet de CONADIS:</label>
                             <div class="form-check" name="rb4">
                                 <label class="custom-control custom-radio">
-                                    <input id="rb4S" name="radio" type="radio" class="custom-control-input">
+                                    <input id="rb4S" type="radio" class="custom-control-input" value="S" name="rbtCon" #rbtCon="ngModel"
+                                    [(ngModel)]="estudiante.CONADIS">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">Si</span>
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="custom-control custom-radio">
-                                    <input id="rb4N" name="radio" type="radio" class="custom-control-input">
+                                    <input id="rb4N" type="radio" class="custom-control-input" value="N" name="rbt2Con" #rbt2Con="ngModel"
+                                    [(ngModel)]="estudiante.CONADIS">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">No</span>
                                 </label>

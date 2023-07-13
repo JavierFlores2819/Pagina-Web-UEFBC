@@ -1,6 +1,6 @@
 
 export class representante {
-    REP_ID?: number;
+    REP_ID: number;
     REP_DNI: string;
     REP_NOM: string;
     REP_NOM2: string;
@@ -15,7 +15,8 @@ export class representante {
     USR_CREADOR_ID: number;
 
 
-    constructor(REP_DNI: string, REP_NOM: string,REP_NOM2:string,REP_APE:string,REP_APE2:string, REP_DIR: string, REP_CEL: string, REP_TEL: string, REP_MAIL: string, REP_REL_FAM: string, REP_ESTADO: string, USR_CREADOR_ID: number) {
+    constructor(REP_ID:number,REP_DNI: string, REP_NOM: string,REP_NOM2:string,REP_APE:string,REP_APE2:string, REP_DIR: string, REP_CEL: string, REP_TEL: string, REP_MAIL: string, REP_REL_FAM: string, REP_ESTADO: string, USR_CREADOR_ID: number) {
+        this.REP_ID = REP_ID
         this.REP_DNI = REP_DNI;
         this.REP_NOM = REP_NOM;
         this.REP_NOM2=REP_NOM2

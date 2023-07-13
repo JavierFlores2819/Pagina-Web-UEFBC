@@ -26,7 +26,7 @@ export class ParalelosComponent implements OnInit {
     console.log(id)
     this.paraleloService.getParalelos(id).subscribe(data => {
       this.data = data.data;
-      this.titulo += data.data[0].CURSO;
+      //this.titulo += data.data[0].CURSO;
       this.headers = data.headers;
     });
     //  this.rutaCrear += '/' + id+'/crear';
