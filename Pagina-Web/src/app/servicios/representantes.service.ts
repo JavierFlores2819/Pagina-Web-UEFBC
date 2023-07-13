@@ -25,6 +25,16 @@ export class RepresentantesService {
       })
     );
   }
+  getRepresentante(soli:any): Observable<{ data: representante[], headers: string[] }> {
+    let headers = ["REP_ID", "REP_DNI", "REP_NOM","REP_NOM2", "REP_APE", "REP_APE2", "REP_DIR","REP_CEL","REP_TEL","REP_MAIL","REP_ESTADO", "USR_CREADOR_ID"]
+
+    return this.http.post<representante[]>(parametros.APIURL + 'get', soli).pipe(
+      map(data => {
+        return { data, headers: headers };
+      })
+    );
+
+  }
 
   addRepresentante(soli:any): Observable<any>{
     const headers = ['Cedula', 'Primer N', 'Segundo N', 'Primer A','Segundo A','Direccion','Celular','Telefono','Email','Relacion Fam', 'Estado','Usuario']

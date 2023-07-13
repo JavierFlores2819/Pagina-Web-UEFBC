@@ -15,7 +15,7 @@ export class UsuarioComponent {
   usuario: usuario = { USR_ID: 0, USR_DNI: "", USR_NOM: "", USR_NOM2: "", USR_APE: "", USR_APE2: "", USR_TEL: "", USR_MAIL: "", USR: "", USR_PSWD: "", USR_ESTADO: "D", USR_TIPO: "" }
 
   constructor(private usuService: UsuariosService, private aRoute: ActivatedRoute) {
-    this.id = this.aRoute.snapshot.paramMap.get('id')
+    this.id = this.aRoute.snapshot.paramMap.get('usuario')
   }
 
   ngOnInit(): void {
