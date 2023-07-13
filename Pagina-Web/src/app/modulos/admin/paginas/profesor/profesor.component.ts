@@ -11,7 +11,7 @@ import { DocentesService } from 'src/app/servicios/docentes.service';
 export class ProfesorComponent {
 
   titulo="Nuevo Docente"
-  id:any
+  id:string | null = '0'
   docente:profesor ={PRF_ID:0,PRF_DNI:"",PRF_NOM:"",PRF_NOM2:"",PRF_APE:"",PRF_APE2:"",PRF_FECH_NAC:"",PRF_GEN:"",PRF_DIR:"",PRF_CEL:"",
     PRF_TEL:"",PRF_MAIL:"",PRF_FECH_INGR_INST:"",PRF_FECH_INGR_MAG:"",PRF_ESTADO:"D",USR_CREADOR_ID:1,FECHA_CREACION:""}
  
@@ -20,7 +20,9 @@ export class ProfesorComponent {
     }
 
   ngOnInit(): void {
-    if (this.id) {
+    console.log(this.id);
+    
+    if (this.id!='crear') {
       this.titulo = "Editar Docente"
       this.cargarProfesor()
     }
@@ -66,7 +68,7 @@ export class ProfesorComponent {
   }
 
   guardarDocente(){
-    if (this.id) {
+    if (this.id!='crear') {
       //editar
     } else {
       // nuevo

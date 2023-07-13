@@ -17,7 +17,7 @@ export class RepresentanteComponent {
     this.id = this.aRoute.snapshot.paramMap.get('representante')
   }
   ngOnInit(): void {
-    if (this.id) {
+    if (this.id!='crear') {
       this.titulo = "Editar Representante"
       this.cargarRepresentante()
     }

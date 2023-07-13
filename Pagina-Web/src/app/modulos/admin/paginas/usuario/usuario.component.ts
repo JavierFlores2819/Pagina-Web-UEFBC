@@ -10,7 +10,7 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 })
 export class UsuarioComponent {
 
-  id: any;
+  id:string |null ='0';
   titulo: string = '';
   usuario: usuario = { USR_ID: 0, USR_DNI: "", USR_NOM: "", USR_NOM2: "", USR_APE: "", USR_APE2: "", USR_TEL: "", USR_MAIL: "", USR: "", USR_PSWD: "", USR_ESTADO: "D", USR_TIPO: "" }
 
@@ -19,7 +19,7 @@ export class UsuarioComponent {
   }
 
   ngOnInit(): void {
-    if (this.id) {
+    if (this.id!='crear') {
       this.titulo = 'Editar Usuario'
       this.cargarUsuario()
     } else {
