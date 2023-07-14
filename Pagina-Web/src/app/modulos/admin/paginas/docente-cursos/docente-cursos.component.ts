@@ -21,7 +21,7 @@ export class DocenteCursosComponent {
   ngOnInit() {
     const usuario = this.authService.getUser();
 
-    this.docenteService.getParalelosDocentes(usuario.dni).subscribe(data => {
+    this.docenteService.getParalelosDocentes("0041629965").subscribe(data => {
       this.data = data.data;
       this.headers = data.headers;
     });

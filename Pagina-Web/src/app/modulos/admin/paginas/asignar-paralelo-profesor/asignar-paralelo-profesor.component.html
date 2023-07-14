@@ -1,0 +1,61 @@
+<h4>Asignación de materias - profesor</h4>
+<hr>
+<form action="" class="" (ngSubmit)="guardarAsignacion()">
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <label class="h5" for="asig">Asignatura:</label>
+            <select class="form-select" aria-label=".form-select-lg example" aria-label="Default select example" name="asig" #asig="ngModel" [(ngModel)]="asignacion.ASG_ID">
+                <option value="0" selected>Seleccione</option>
+                <option *ngFor="let item of listAsignaturas" value="{{item.ASG_ID}}">{{item.ASG_NOM}}</option>
+              </select>
+        </div>
+
+        <div class="col-md-6">
+            <label class="h5" for="asig">Docente:</label>
+            <select class="form-select" aria-label=".form-select-lg example" aria-label="Default select example" name="asig" #asig="ngModel" [(ngModel)]="asignacion.PRF_ID">
+                <option value="0" selected>Seleccione</option>
+                <option *ngFor="let item of listDocentes" value="{{item.PRF_ID}}">{{item.PRF_APE}} {{item.PRF_APE2}} {{item.PRF_NOM}} {{item.PRF_NOM2}}</option>
+              </select>
+        </div>
+    </div>
+<br>
+    <div class="row">
+               <div class="col-md-6">
+            <label class="h5" for="asig">Curso:</label>
+            <select class="form-select" aria-label=".form-select-lg example" aria-label="Default select example" name="curso" #curso="ngModel" (select)="auxCursoId" [(ngModel)]="auxCursoId" (change)="onSelectChange($event)">
+                <option value="0" selected>Seleccione</option>
+                <option *ngFor="let item of listCursos" value="{{item.CRS_ID}}" >{{item.CRS_NOM}} {{item.CRS_TIP}}</option>
+              </select>
+        </div>
+
+        <div class="col-md-6">
+            <label class="h5" for="asig">Paralelo:</label>
+            <select class="form-select" aria-label=".form-select-lg example" aria-label="Default select example" name="prll" #prll="ngModel" [(ngModel)]="asignacion.PRLL_ID" >
+                <option value="0" selected>Seleccione</option>
+                <option *ngFor="let item of listParalelos" value="{{item.PRLL_ID}}">{{item.PRLL_NOM}}</option>
+              </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="" class="h5">Estado</label>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="chbxEst"
+                name="est"  (change)="onChangeCheck($event)">
+                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+              </div>
+          </div>
+    </div>
+<br>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-success m-r-10"> Guardar
+        </button>
+        <button type="button" class="btn btn-inverse" routerLink="">Cancelar</button>
+    </div>
+
+</form>
+
+{{asignacion|json}}

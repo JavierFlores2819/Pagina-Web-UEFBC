@@ -26,6 +26,20 @@ export class DocentesService {
       })
     );
   }
+  getDocentesA(): Observable<{ data: profesor[], headers: string[] }> {
+    let params = {
+      tabla: "profesor",
+      campos: ["PRF_ID", "PRF_DNI", "CONCAT(PRF_NOM, ' ', PRF_NOM2, ' ', PRF_APE, ' ', PRF_APE2) AS PRF_NOM", "DATE_FORMAT(PRF_FECH_NAC, '%d/%m/%Y')", "PRF_GEN", "DATE_FORMAT(PRF_FECH_INGR_INST, '%d/%m/%Y')", "DATE_FORMAT(PRF_FECH_INGR_MAG, '%d/%m/%Y')", "PRF_ESTADO"]
+    };
+
+    let headers = ['Cédula', 'Nombre', 'Fecha de nacimiento', 'Género', 'Fecha de ingreso a la institución', 'Fecha de ingreso al magisterio', 'Estado']
+
+    return this.http.post<profesor[]>(parametros.APIURL + 'get', params).pipe(
+      map(data => {
+        return { data, headers: headers };
+      })
+    );
+  }
 
   getParalelosDocentes(docente_dni: string): Observable<{ data: profesor[], headers: string[] }> {
     let params = {
