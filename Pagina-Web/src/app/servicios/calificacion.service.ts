@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 
 import * as parametros from '../utils/parametros';
+import { calificacion } from '../modelos/clases/calificacion.Model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,16 @@ getEstudiantesParalelo(id:any): Observable<{ data: any, headers: string[] }> {
   let headers = ['EST_ID', 'NOMS', 'MTRC_ID']
 
   return this.http.post<any>(parametros.APIURL + 'get', params).pipe(
+    map(data => {
+      return { data, headers: headers };
+    })
+  );
+}
+
+addCalificacion(soli:any):Observable<any>{
+  const headers = ["CLF_NOTA", "CLF_ESTADO", "SPRD_ID", "MTRC_ID", "ASG_PRLL_PRF_ID", "USR_CREADOR_ID"]
+  
+  return this.http.post<calificacion>(parametros.APIURL + 'create', soli).pipe(
     map(data => {
       return { data, headers: headers };
     })

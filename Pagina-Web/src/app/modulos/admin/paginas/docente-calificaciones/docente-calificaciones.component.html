@@ -1,31 +1,32 @@
+<div class="row d-flex align-items-center  p-2 my-3 text-white rounded shadow-sm"
+    style="background-color: #0d6efd !important">
+    <div class="col-md-6 ">
+        <label class="h5" for="">Nombres y Apellidos</label>
+        <hr>
+    </div>
+    <div class="col-md-6">
+        <label class="h5" for="">Calificación</label>
+        <hr>
+    </div>
+</div>
 
-
-                <div class="row d-flex align-items-center  p-2 my-3 text-white rounded shadow-sm" style="background-color: #0d6efd !important">
-                    <div class="col-md-8 ">
-                        <label class="h5" for="">Nombres y Apellidos</label>
-                        <hr>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="h5" for="">Calificación</label>
-                        <hr>
-                    </div>
-                </div>
-
-                <div class="container-sm">
-
-     
-               
-                <form action="">
-                    
-                    <div class="row " *ngFor="let item of estudiantes">
-                        <div class="col-md-8">
-                          <label for="inputPassword6" class="col-form-label">{{item.nombres}}</label>
-                        </div>
-                        <div class="col-md-4">
-                          <input type="password" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline">
-                        </div>
-                        <br>
-                    </div>
-                </form>
-
+<div class="container-sm" *ngFor="let item of estudiantes;let i=index">
+    <form action="" (ngSubmit)="guardarCalificacion()">
+        <div class="row" >
+            <div class="col-md-6">
+                <label for="inputPassword6" class="col-form-label">{{item.nombres}}</label>
             </div>
+            <div class="col-md-3">
+                <input type="text" id="inputPassword6" class="form-control" aria-labelledby="passwordHelpInline"
+                    (keyup)="asignarCalificacion($event, item.MTRC_ID)">
+            </div>
+            <div class="form-actions col-md-3">
+                <button type="submit" class="btn btn-success"> Guardar
+                </button>
+            </div>
+            <br>
+        </div>
+        <hr>
+    </form>
+</div>
+{{auxCali|json}}
