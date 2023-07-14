@@ -45,4 +45,15 @@ export class RepresentantesService {
       })
     );
   }
+
+  updateRepresentante(soli:any):Observable<any>{
+    const headers = ["REP_DNI", "REP_NOM","REP_NOM2", "REP_APE", "REP_APE2", "REP_DIR","REP_CEL","REP_TEL","REP_MAIL","REP_REL_FAM", "REP_ESTADO",
+    "USR_CREADOR_ID"]
+    
+    return this.http.put<representante>(parametros.APIURL + 'update', soli).pipe(
+      map(data => {
+        return { data, headers: headers };
+      })
+    );
+  }
 }

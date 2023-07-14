@@ -74,4 +74,14 @@ export class UsuariosService {
     );
   }
 
+  updateUsusario(soli:any):Observable<any>{
+    const headers = ['Cedula', 'Primer N', 'Segundo N', 'Primer A','Segundo A','Telefono','Email','Usr','pswd', 'estado','tipo']
+    
+    return this.http.put<usuario>(parametros.APIURL + 'update', soli).pipe(
+      map(data => {
+        return { data, headers: headers };
+      })
+    );
+  }
+
 }

@@ -11,7 +11,9 @@ import { RepresentantesService } from 'src/app/servicios/representantes.service'
 export class RepresentanteComponent {
   titulo="Crear representante"
   id:any
-  repre:representante={REP_ID:0,REP_DNI:"",REP_NOM: "",REP_NOM2: "",REP_APE: "",REP_APE2: "",REP_DIR:"",REP_CEL:"",REP_TEL:"",REP_MAIL:"",REP_REL_FAM:"",REP_ESTADO:"D",
+  chbxEst:boolean =false
+
+  repre:representante={REP_ID:0,REP_DNI:"",REP_NOM: "",REP_NOM2: "",REP_APE: "",REP_APE2: "",REP_DIR:"",REP_CEL:"",REP_TEL:"",REP_MAIL:"",REP_ESTADO:"D",
     USR_CREADOR_ID: 1}
   constructor(private aRoute:ActivatedRoute, private representanteService:RepresentantesService){
     this.id = this.aRoute.snapshot.paramMap.get('representante')
@@ -34,6 +36,7 @@ export class RepresentanteComponent {
               "tipo": "&&"
           }
       ]
+      
   }
 
   this.representanteService.getRepresentante(param).subscribe(data=>{
@@ -50,6 +53,13 @@ export class RepresentanteComponent {
     this.repre.REP_ESTADO = data.data[0].REP_ESTADO
     this.repre.USR_CREADOR_ID = data.data[0].USR_CREADOR_ID
     console.log('carga de datos');
+    if (this.repre.REP_ESTADO=='A') {
+      this.chbxEst = true
+      console.log('entro al if');
+      
+      console.log(this.chbxEst);
+      
+    }
     
   })
   
@@ -64,12 +74,28 @@ export class RepresentanteComponent {
   }
 
   guardarRepresentante(){
-    if (this.id) {
-      //editar
-      let param =""
-      /*this.representanteService.updateRepresntante(param).suscribe(data=>{
-
-      })*/
+    if (this.id!='crear') {
+      //editar      
+      let param ={"tabla": "representante",
+        "campos": [
+          { "nombre": "REP_ID", "valor":this.repre.REP_ID },
+          { "nombre": "REP_DNI", "valor": this.repre.REP_DNI},
+          { "nombre": "REP_NOM", "valor": this.repre.REP_NOM },
+          { "nombre": "REP_NOM2", "valor": this.repre.REP_NOM2 },
+          { "nombre": "REP_APE", "valor": this.repre.REP_APE },
+          { "nombre": "REP_APE2", "valor": this.repre.REP_APE2 },
+          { "nombre": "REP_DIR", "valor": this.repre.REP_DIR },
+          { "nombre": "REP_CEL", "valor": this.repre.REP_CEL },
+          { "nombre": "REP_TEL", "valor": this.repre.REP_TEL },
+          { "nombre": "REP_MAIL", "valor": this.repre.REP_MAIL },
+          { "nombre": "REP_ESTADO", "valor": this.repre.REP_ESTADO },
+          { "nombre": "USR_CREADOR_ID", "valor":this.repre.USR_CREADOR_ID }
+        ]
+      }
+      this.representanteService.updateRepresentante(param).subscribe(data=>{
+        console.log('repre editado');
+        
+      })
     } else {
       //nuevo
       let param = {
@@ -85,7 +111,6 @@ export class RepresentanteComponent {
                     this.repre.REP_CEL,
                     this.repre.REP_TEL,
                     this.repre.REP_MAIL,
-                    this.repre.REP_REL_FAM,
                     this.repre.REP_ESTADO,
                     this.repre.USR_CREADOR_ID]
       }

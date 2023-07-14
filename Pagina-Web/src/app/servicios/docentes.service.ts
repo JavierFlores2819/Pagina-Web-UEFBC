@@ -60,4 +60,14 @@ export class DocentesService {
       })
     );
   }
+
+  updateDocente(soli:any):Observable<any>{
+    const headers = ["PRF_DNI", "PRF_NOM",  "PRF_NOM2", "PRF_APE", "PRF_APE2", "PRF_FECH_NAC", "PRF_GEN", "PRF_DIR", "PRF_CEL", "PRF_TEL", "PRF_MAIL", "PRF_FECH_INGR_INST", "PRF_FECH_INGR_MAG", "PRF_ESTADO", "USR_CREADOR_ID"]
+    
+    return this.http.put<profesor>(parametros.APIURL + 'update', soli).pipe(
+      map(data => {
+        return { data, headers: headers };
+      })
+    );
+  }
 }
