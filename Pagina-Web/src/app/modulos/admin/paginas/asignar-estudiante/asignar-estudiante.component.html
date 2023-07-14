@@ -1,0 +1,54 @@
+<div class="tab-content">
+  <div class="row">
+    <h4 class="col-md-6">Curso: {{paralelo.CURSO}}  </h4>
+    <h4 class="col-md-6">Paralelo: {{paralelo.PRLL_NOM}}</h4>
+  </div>
+  
+   <h4 class="col-md-6">Profesor tutor: {{paralelo.PROF}} </h4>  
+   
+</div>
+<div class="row">
+<div class="col-md-6">
+
+<div class="d-flex align-items-center p-3 my-3 text-white rounded shadow-sm" style="background-color: #0d6efd !important">
+  <h4>Lista de estudiantes aprobados para este curso</h4>
+</div>
+<hr>
+
+
+  <div class="container-sm" *ngFor="let est of lisEstudiantes">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" [value]="est.EST_ID" id="flexCheckDefault"  name="est.nombres" (change)="onChangeCheck($event)">
+    <label class="form-check-label h4" for="flexCheckDefault">
+      {{est.nombres}}
+    </label>
+    <hr>
+  </div>
+</div>
+<div class="form-actions">
+
+  <button type="button" class="btn btn-inverse" routerLink="">Cancelar</button>
+</div>
+
+<button type="submit" class="btn btn-success m-r-10 col-md-6" (click)="guardarListaParalelo()"> Guardar
+</button>
+
+</div>
+
+
+<div class="col-md-6">
+
+  <div class="d-flex align-items-center p-3 my-3 text-white rounded shadow-sm" style="background-color: #fd7e14 !important">
+    <h4>Lista de estudiantes para este paralelo</h4>
+  </div>
+  <hr>
+  <div class="h6">
+    {{this.listEstudiantesParalelo|json}}
+
+  </div>
+  </div>
+
+
+
+
+

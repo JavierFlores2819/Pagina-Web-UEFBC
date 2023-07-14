@@ -24,6 +24,7 @@ import { ReportCalificacionesComponent } from './paginas/report-calificaciones/r
 import { ReportMatriculasComponent } from './paginas/report-matriculas/report-matriculas.component';
 import { DocenteCursosComponent } from './paginas/docente-cursos/docente-cursos.component';
 import { DocenteCalificacionesComponent } from './paginas/docente-calificaciones/docente-calificaciones.component';
+import { AsignarEstudianteComponent } from './paginas/asignar-estudiante/asignar-estudiante.component';
 
 
 const routes: Routes = [
@@ -65,7 +66,7 @@ const routes: Routes = [
               { path: ':curso/crear', component: ParaleloComponent },
               { path: ':curso/editar/:paralelo', component: ParaleloComponent },
               { path: ':curso/ver/:paralelo', component: EstudiantesComponent },
-              { path: ':curso/agregar/:paralelo', component: ParaleloComponent },
+              { path: ':curso/agregar/:paralelo', component: AsignarEstudianteComponent},
             ]
           },
           {
